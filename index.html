@@ -8,57 +8,54 @@
   body {
     margin: 0;
     font-family: Arial, sans-serif;
-    color: white;
-    background: url("https://images.unsplash.com/photo-1581091870622-2f0b7b0b5c0f") no-repeat center center fixed;
-    background-size: cover;
+    background: #ffffff;
+    color: #0f172a;
   }
 
-  .overlay {
-    background: rgba(0,0,0,0.70);
-    min-height: 100vh;
-  }
-
-  /* NAVBAR */
+  /* TOP BAR */
   nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 25px;
+    padding: 18px 25px;
+    border-bottom: 1px solid #e2e8f0;
     position: sticky;
     top: 0;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(6px);
+    background: white;
   }
 
   nav h1 {
-    color: #38bdf8;
     margin: 0;
+    color: #0ea5e9;
     font-size: 20px;
   }
 
   nav a {
-    color: white;
     margin: 0 10px;
     text-decoration: none;
-    font-weight: bold;
+    color: #334155;
+    font-weight: 600;
   }
 
   nav a:hover {
-    color: #38bdf8;
+    color: #0ea5e9;
   }
 
   .btn {
-    background: #38bdf8;
+    background: #0ea5e9;
     border: none;
-    padding: 6px 10px;
+    padding: 7px 12px;
     border-radius: 6px;
     cursor: pointer;
+    color: white;
+    font-weight: bold;
   }
 
-  /* SECTIONS */
-  section {
-    padding: 100px 20px;
+  /* HERO */
+  .hero {
     text-align: center;
+    padding: 90px 20px;
+    background: linear-gradient(180deg, #f8fafc, #ffffff);
   }
 
   .hero h2 {
@@ -66,18 +63,38 @@
     margin-bottom: 10px;
   }
 
+  .hero p {
+    color: #64748b;
+    font-size: 18px;
+  }
+
+  /* CARD */
   .card {
-    background: rgba(255,255,255,0.08);
-    padding: 25px;
-    border-radius: 12px;
-    max-width: 600px;
+    max-width: 700px;
     margin: auto;
+    background: #f8fafc;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
   }
 
+  section {
+    padding: 80px 20px;
+    text-align: center;
+  }
+
+  /* CONTACT */
   .contact {
-    color: #e2e8f0;
+    border-top: 1px solid #e2e8f0;
+    background: #f8fafc;
   }
 
+  .contact p {
+    margin: 5px;
+    color: #334155;
+  }
+
+  /* ARABIC */
   .arabic {
     direction: rtl;
     text-align: right;
@@ -88,9 +105,7 @@
 
 <body>
 
-<div class="overlay">
-
-<!-- NAVBAR -->
+<!-- NAV -->
 <nav>
   <h1>MedicalSenderPro</h1>
 
@@ -113,7 +128,7 @@
   <div class="card">
     <h3 id="featureTitle">Why MedicalSenderPro?</h3>
     <p id="featureText">
-      A secure system designed for radiology departments to send and receive medical imaging safely.
+      A modern medical platform designed for radiology departments to securely share imaging data with hospitals and clinics.
     </p>
   </div>
 </section>
@@ -123,8 +138,6 @@
   <p id="contactText">Contact: medicalsenderpro@gmail.com</p>
   <p>www.medicalsenderpro.com</p>
 </section>
-
-</div>
 
 <script>
 let arabic = false;
@@ -145,7 +158,7 @@ function toggleLang() {
       "لماذا MedicalSenderPro؟";
 
     document.getElementById("featureText").innerText =
-      "نظام آمن لمراكز الأشعة لتبادل الصور الطبية.";
+      "منصة حديثة لمشاركة صور الأشعة بين المستشفيات والمراكز الطبية.";
 
     document.getElementById("contactText").innerText =
       "تواصل معنا: medicalsenderpro@gmail.com";
@@ -163,7 +176,7 @@ function toggleLang() {
       "Why MedicalSenderPro?";
 
     document.getElementById("featureText").innerText =
-      "A secure system designed for radiology departments to send and receive medical imaging safely.";
+      "A modern medical platform designed for radiology departments to securely share imaging data with hospitals and clinics.";
 
     document.getElementById("contactText").innerText =
       "Contact: medicalsenderpro@gmail.com";
