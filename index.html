@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>MedicalSenderPro | Blue Edition · DICOM Sharing</title>
+  <title>MedicalSenderPro | Green DICOM Sharing</title>
   <style>
     * {
       margin: 0;
@@ -14,7 +14,7 @@
     body {
       font-family: system-ui, 'Segoe UI', 'Roboto', 'Inter', 'Helvetica Neue', sans-serif;
       background: #ffffff;
-      color: #0f2b3d;
+      color: #1a2e35;
       scroll-behavior: smooth;
     }
 
@@ -25,7 +25,7 @@
       box-shadow: none;
     }
 
-    /* ===== NAVBAR – BLUE ACCENTS ===== */
+    /* ===== NAVBAR – GREEN ACCENTS ===== */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -35,7 +35,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      border-bottom: 1px solid #d9edf7;
+      border-bottom: 1px solid #e2f0e6;
       flex-wrap: wrap;
       gap: 1rem;
     }
@@ -65,17 +65,17 @@
       font-weight: 700;
       font-size: 1.4rem;
       background: none;
-      color: #0f6b9e;
+      color: #1c6e43;
     }
 
-    /* 👇 NEW: subtext exactly "MedicalSender Pro" */
+    /* Subtext under logo: "MedicalSender Pro" */
     .logo-sub {
       font-size: 0.7rem;
       font-weight: 600;
-      color: #2c7cb6;
+      color: #2b8c5e;
       letter-spacing: 0.4px;
       margin-left: 2px;
-      background: #eef5fc;
+      background: #eef9f2;
       padding: 0.2rem 0.6rem;
       border-radius: 20px;
       display: inline-block;
@@ -91,16 +91,16 @@
     .nav-links a {
       text-decoration: none;
       font-weight: 600;
-      color: #1a5d7d;
+      color: #1f4f3a;
       transition: color 0.2s;
     }
 
     .nav-links a:hover {
-      color: #0f8bc9;
+      color: #2b8c5e;
     }
 
     .lang-btn {
-      background: #0f8bc9;
+      background: #2b8c5e;
       border: none;
       padding: 0.45rem 1.1rem;
       border-radius: 40px;
@@ -111,12 +111,12 @@
     }
 
     .lang-btn:hover {
-      background: #0a6b9c;
+      background: #1e6a47;
     }
 
-    /* ===== HERO SECTION – BLUE THEME ===== */
+    /* ===== HERO SECTION – GREEN THEME ===== */
     .hero-section {
-      background: linear-gradient(125deg, #ecf7fe 0%, #ffffff 80%);
+      background: linear-gradient(125deg, #eef9f0 0%, #ffffff 80%);
       padding: 4rem 2rem;
       text-align: center;
     }
@@ -124,7 +124,7 @@
     .hero-content h1 {
       font-size: 3rem;
       font-weight: 800;
-      background: linear-gradient(135deg, #146b9e, #0f8bc9);
+      background: linear-gradient(135deg, #166534, #2b8c5e);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
@@ -133,12 +133,12 @@
 
     .hero-sub {
       font-size: 1.2rem;
-      color: #2c5f7a;
+      color: #2c5a44;
       max-width: 750px;
       margin: 0 auto 1rem;
     }
 
-    /* no Zero Grey badge – removed completely */
+    /* Zero Grey badge removed completely */
 
     /* ===== FEATURE CARDS ===== */
     .section {
@@ -150,7 +150,7 @@
       text-align: center;
       font-size: 2.2rem;
       font-weight: 700;
-      color: #146b9e;
+      color: #1c5a41;
       margin-bottom: 2.5rem;
     }
 
@@ -169,14 +169,14 @@
       padding: 1.8rem;
       width: 260px;
       transition: 0.25s ease;
-      box-shadow: 0 8px 20px rgba(0, 60, 100, 0.06);
-      border: 1px solid #d9edf7;
+      box-shadow: 0 8px 20px rgba(40, 80, 50, 0.06);
+      border: 1px solid #eaf6ef;
       text-align: center;
     }
 
     .feature-card:hover {
       transform: translateY(-5px);
-      border-color: #9bc9e8;
+      border-color: #c8e6d9;
     }
 
     .feature-icon {
@@ -187,11 +187,11 @@
     .feature-card h3 {
       font-size: 1.3rem;
       margin-bottom: 0.6rem;
-      color: #0f6b9e;
+      color: #1e6a47;
     }
 
     .feature-card p {
-      color: #2f5a72;
+      color: #3e5a4b;
     }
 
     /* BENEFITS GRID */
@@ -204,11 +204,11 @@
     }
 
     .benefit-item {
-      background: #fafeff;
+      background: #fafef8;
       border-radius: 24px;
       padding: 1.5rem;
       text-align: center;
-      border: 1px solid #d9edf7;
+      border: 1px solid #e2f0e6;
     }
 
     .benefit-icon {
@@ -218,16 +218,16 @@
 
     .benefit-item h4 {
       font-size: 1.2rem;
-      color: #0f6b9e;
+      color: #1f6e48;
     }
 
     .benefit-item p {
-      color: #2c5a72;
+      color: #426454;
     }
 
-    /* MISSION BLOCK – blue tint */
+    /* MISSION BLOCK – green tint */
     .mission-block {
-      background: #eef5fc;
+      background: #edf7f0;
       margin: 2.5rem auto 0;
       max-width: 900px;
       border-radius: 48px;
@@ -241,7 +241,7 @@
       gap: 2rem;
       margin-top: 1rem;
       font-weight: 700;
-      color: #146b9e;
+      color: #226e47;
     }
 
     /* CONTACT */
@@ -251,12 +251,12 @@
     }
 
     .contact-email {
-      background: #eef5fc;
+      background: #eef9f2;
       display: inline-block;
       padding: 0.6rem 1.5rem;
       border-radius: 50px;
       font-weight: 600;
-      color: #0f6b9e;
+      color: #166534;
       margin: 0.8rem 0;
     }
 
