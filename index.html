@@ -4,101 +4,132 @@
 <meta charset="UTF-8">
 <title>MedicalSenderPro</title>
 
+<!-- simple icon support -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #ffffff;
-    color: #0f172a;
-  }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  color: #0f172a;
+}
 
-  /* TOP BAR */
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 25px;
-    border-bottom: 1px solid #e2e8f0;
-    position: sticky;
-    top: 0;
-    background: white;
-  }
+/* HERO BACKGROUND IMAGE (SUBTLE) */
+.hero {
+  text-align: center;
+  padding: 110px 20px;
+  background: url("https://images.unsplash.com/photo-1581091870622-2f0b7b0b5c0f") center/cover no-repeat;
+  position: relative;
+  color: white;
+}
 
-  nav h1 {
-    margin: 0;
-    color: #0ea5e9;
-    font-size: 20px;
-  }
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
 
-  nav a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: #334155;
-    font-weight: 600;
-  }
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
 
-  nav a:hover {
-    color: #0ea5e9;
-  }
+.hero h1 {
+  font-size: 42px;
+  margin: 0;
+}
 
-  .btn {
-    background: #0ea5e9;
-    border: none;
-    padding: 7px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    color: white;
-    font-weight: bold;
-  }
+.hero p {
+  font-size: 18px;
+  color: #e2e8f0;
+}
 
-  /* HERO */
-  .hero {
-    text-align: center;
-    padding: 90px 20px;
-    background: linear-gradient(180deg, #f8fafc, #ffffff);
-  }
+/* NAV */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  background: white;
+}
 
-  .hero h2 {
-    font-size: 42px;
-    margin-bottom: 10px;
-  }
+nav h2 {
+  margin: 0;
+  color: #0ea5e9;
+}
 
-  .hero p {
-    color: #64748b;
-    font-size: 18px;
-  }
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #334155;
+  font-weight: 600;
+}
 
-  /* CARD */
-  .card {
-    max-width: 700px;
-    margin: auto;
-    background: #f8fafc;
-    padding: 30px;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-  }
+/* SECTIONS */
+.section {
+  padding: 70px 20px;
+  text-align: center;
+}
 
-  section {
-    padding: 80px 20px;
-    text-align: center;
-  }
+.card {
+  max-width: 700px;
+  margin: auto;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 25px;
+  border-radius: 12px;
+}
 
-  /* CONTACT */
-  .contact {
-    border-top: 1px solid #e2e8f0;
-    background: #f8fafc;
-  }
+/* ICONS */
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
-  .contact p {
-    margin: 5px;
-    color: #334155;
-  }
+.feature {
+  width: 220px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 20px;
+  border-radius: 12px;
+}
 
-  /* ARABIC */
-  .arabic {
-    direction: rtl;
-    text-align: right;
-  }
+.feature i {
+  font-size: 28px;
+  color: #0ea5e9;
+  margin-bottom: 10px;
+}
+
+/* CONTACT */
+.contact {
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* BUTTON */
+.btn {
+  background: #0ea5e9;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ARABIC */
+.arabic {
+  direction: rtl;
+  text-align: right;
+}
 
 </style>
 </head>
@@ -107,7 +138,7 @@
 
 <!-- NAV -->
 <nav>
-  <h1>MedicalSenderPro</h1>
+  <h2>MedicalSenderPro</h2>
 
   <div>
     <a href="#home">Home</a>
@@ -118,26 +149,42 @@
 </nav>
 
 <!-- HERO -->
-<section id="home" class="hero">
-  <h2 id="title">Secure Medical DICOM Sharing</h2>
-  <p id="desc">Fast and safe platform for radiology centers</p>
-</section>
+<div class="hero" id="home">
+  <div class="hero-content">
+    <h1 id="title">Secure Medical DICOM Sharing</h1>
+    <p id="desc">Fast and safe platform for radiology centers</p>
+  </div>
+</div>
 
 <!-- FEATURES -->
-<section id="features">
-  <div class="card">
-    <h3 id="featureTitle">Why MedicalSenderPro?</h3>
-    <p id="featureText">
-      A modern medical platform designed for radiology departments to securely share imaging data with hospitals and clinics.
-    </p>
+<div class="section" id="features">
+  <h2>Why MedicalSenderPro?</h2>
+
+  <div class="features">
+
+    <div class="feature">
+      <i class="fa-solid fa-shield-halved"></i>
+      <p>Secure Transfer</p>
+    </div>
+
+    <div class="feature">
+      <i class="fa-solid fa-bolt"></i>
+      <p>Fast Sharing</p>
+    </div>
+
+    <div class="feature">
+      <i class="fa-solid fa-hospital"></i>
+      <p>Radiology Focused</p>
+    </div>
+
   </div>
-</section>
+</div>
 
 <!-- CONTACT -->
-<section id="contact" class="contact">
+<div class="contact" id="contact">
   <p id="contactText">Contact: medicalsenderpro@gmail.com</p>
   <p>www.medicalsenderpro.com</p>
-</section>
+</div>
 
 <script>
 let arabic = false;
@@ -154,12 +201,6 @@ function toggleLang() {
     document.getElementById("desc").innerText =
       "حل سريع وآمن لمراكز الأشعة";
 
-    document.getElementById("featureTitle").innerText =
-      "لماذا MedicalSenderPro؟";
-
-    document.getElementById("featureText").innerText =
-      "منصة حديثة لمشاركة صور الأشعة بين المستشفيات والمراكز الطبية.";
-
     document.getElementById("contactText").innerText =
       "تواصل معنا: medicalsenderpro@gmail.com";
 
@@ -171,12 +212,6 @@ function toggleLang() {
 
     document.getElementById("desc").innerText =
       "Fast and safe platform for radiology centers";
-
-    document.getElementById("featureTitle").innerText =
-      "Why MedicalSenderPro?";
-
-    document.getElementById("featureText").innerText =
-      "A modern medical platform designed for radiology departments to securely share imaging data with hospitals and clinics.";
 
     document.getElementById("contactText").innerText =
       "Contact: medicalsenderpro@gmail.com";
