@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>MedicalSenderPro | Green Radiology Sharing</title>
+  <title>MedicalSenderPro | Zero Grey · Green DICOM</title>
   <style>
     * {
       margin: 0;
@@ -16,17 +16,16 @@
       background: #ffffff;
       color: #1a2e35;
       scroll-behavior: smooth;
-      line-height: 1.4;
     }
 
-    /* ===== NO GREY BARS ===== */
-    nav, section, footer, div, header, .card, .hero, .benefits-grid {
+    /* No grey bars anywhere */
+    nav, section, footer, div, .navbar, .hero-green, .feature-card, .benefit-item {
       border: none;
       outline: none;
       box-shadow: none;
     }
 
-    /* ===== NAVIGATION - PURE WHITE, NO GREY ===== */
+    /* ===== NAVBAR ===== */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -36,8 +35,16 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      backdrop-filter: none;
-      border-bottom: 1px solid #e2f0e6; /* fresh greenish line, not grey */
+      border-bottom: 1px solid #e2f0e6;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.2rem;
     }
 
     .logo-area {
@@ -46,7 +53,6 @@
       gap: 0.5rem;
     }
 
-    /* custom logo will be used — "logo.png" */
     .site-logo {
       height: 52px;
       width: auto;
@@ -60,7 +66,19 @@
       font-size: 1.4rem;
       background: none;
       color: #1c6e43;
-      letter-spacing: -0.3px;
+    }
+
+    /* 👇 NEW: medical sender text under logo */
+    .logo-sub {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #3b8a64;
+      letter-spacing: 0.4px;
+      margin-left: 2px;
+      background: #f0f9f2;
+      padding: 0.1rem 0.5rem;
+      border-radius: 20px;
+      display: inline-block;
     }
 
     .nav-links {
@@ -75,7 +93,6 @@
       font-weight: 600;
       color: #1f4f3a;
       transition: color 0.2s;
-      font-size: 1rem;
     }
 
     .nav-links a:hover {
@@ -89,23 +106,14 @@
       border-radius: 40px;
       color: white;
       font-weight: 600;
-      font-size: 0.8rem;
       cursor: pointer;
-      transition: all 0.2s;
-      box-shadow: none;
     }
 
-    .lang-btn:hover {
-      background: #1e6a47;
-    }
-
-    /* ===== HERO SECTION – FRESH GREEN SOUL ===== */
+    /* ===== HERO SECTION ===== */
     .hero-green {
       background: linear-gradient(125deg, #eef9f0 0%, #ffffff 80%);
       padding: 4rem 2rem;
       text-align: center;
-      position: relative;
-      overflow: hidden;
     }
 
     .hero-content h1 {
@@ -116,18 +124,19 @@
       -webkit-background-clip: text;
       color: transparent;
       margin-bottom: 1rem;
-      letter-spacing: -0.02em;
     }
 
     .hero-sub {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       color: #2c5a44;
-      max-width: 700px;
-      margin: 0 auto 1.5rem;
+      max-width: 750px;
+      margin: 0 auto 1rem;
     }
 
     .green-badge {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       background: #e0f2e9;
       color: #166534;
       padding: 0.5rem 1.2rem;
@@ -135,9 +144,49 @@
       font-weight: 600;
       font-size: 0.85rem;
       margin-top: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    /* ===== CARDS SECTION (FEATURES) ===== */
+    /* tooltip for Zero Grey explanation */
+    .info-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #cbe5da;
+      color: #0e5c3a;
+      border-radius: 50%;
+      width: 19px;
+      height: 19px;
+      font-size: 12px;
+      font-weight: bold;
+      cursor: help;
+      margin-left: 5px;
+      position: relative;
+    }
+
+    .info-icon:hover::after {
+      content: "“Zero Grey” means 100% digital, no CDs/plastic, fully automated, eco-friendly workflow. No outdated grey processes, no waste, no ambiguity.";
+      position: absolute;
+      background: #1f3b2c;
+      color: #f0f9f0;
+      font-size: 0.75rem;
+      font-weight: normal;
+      padding: 6px 12px;
+      border-radius: 16px;
+      white-space: nowrap;
+      top: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 200;
+      width: max-content;
+      max-width: 260px;
+      white-space: normal;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* FEATURE CARDS */
     .section {
       padding: 5rem 2rem;
       background: #ffffff;
@@ -165,15 +214,14 @@
       border-radius: 28px;
       padding: 1.8rem;
       width: 260px;
-      transition: all 0.25s ease;
+      transition: 0.25s ease;
       box-shadow: 0 8px 20px rgba(40, 80, 50, 0.06);
       border: 1px solid #eaf6ef;
       text-align: center;
     }
 
     .feature-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 30px rgba(33, 94, 63, 0.1);
+      transform: translateY(-5px);
       border-color: #c8e6d9;
     }
 
@@ -183,15 +231,9 @@
     }
 
     .feature-card h3 {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       margin-bottom: 0.6rem;
       color: #1e6a47;
-    }
-
-    .feature-card p {
-      color: #3e5a4b;
-      font-size: 0.9rem;
-      line-height: 1.4;
     }
 
     /* BENEFITS GRID */
@@ -206,60 +248,42 @@
     .benefit-item {
       background: #fafef8;
       border-radius: 24px;
-      padding: 1.6rem 1.2rem;
+      padding: 1.5rem;
       text-align: center;
-      transition: all 0.2s;
       border: 1px solid #e2f0e6;
     }
 
     .benefit-icon {
-      font-size: 2.2rem;
-      margin-bottom: 0.8rem;
+      font-size: 2rem;
+      margin-bottom: 0.6rem;
     }
 
     .benefit-item h4 {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       color: #1f6e48;
-      margin-bottom: 0.5rem;
     }
 
-    .benefit-item p {
-      color: #426454;
-      font-size: 0.9rem;
-    }
-
-    /* GREEN MISSION BLOCK */
     .mission-block {
       background: #edf7f0;
-      margin: 2rem auto 0;
+      margin: 2.5rem auto 0;
       max-width: 900px;
       border-radius: 48px;
-      padding: 2rem 2rem;
+      padding: 2rem;
       text-align: center;
-    }
-
-    .mission-block p {
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: #115e3a;
     }
 
     .power-save {
       display: flex;
       justify-content: center;
       gap: 2rem;
-      margin-top: 1.2rem;
+      margin-top: 1rem;
       font-weight: 700;
-      font-size: 1.3rem;
       color: #226e47;
     }
 
-    /* CONTACT */
     .contact-green {
       text-align: center;
-      padding: 3rem 2rem 3.5rem;
-      background: #ffffff;
-      border-top: none;
+      padding: 3rem 2rem;
     }
 
     .contact-email {
@@ -272,32 +296,29 @@
       margin: 0.8rem 0;
     }
 
-    /* RTL ARABIC */
+    /* RTL for Arabic */
     body.arabic {
       direction: rtl;
       text-align: right;
     }
 
-    body.arabic .nav-links {
-      gap: 1rem;
-    }
-
-    /* responsive */
     @media (max-width: 700px) {
       .navbar {
         flex-direction: column;
-        gap: 0.8rem;
-        padding: 1rem;
+        align-items: stretch;
       }
       .hero-content h1 {
-        font-size: 2.2rem;
-      }
-      .section-title {
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
       .power-save {
         flex-direction: column;
         gap: 0.5rem;
+      }
+      .info-icon:hover::after {
+        white-space: normal;
+        width: 220px;
+        left: 0;
+        transform: none;
       }
     }
   </style>
@@ -305,11 +326,15 @@
 <body>
 
 <nav class="navbar">
-  <div class="logo-area">
-    <!-- CUSTOM LOGO: use "logo.png" (replace with your actual logo file) -->
-    <img id="mainLogo" class="site-logo" src="logo.png" alt="MedicalSenderPro Logo" 
-         onerror="this.onerror=null; this.style.display='none'; document.getElementById('fallbackLogoText').style.display='block';">
-    <span id="fallbackLogoText" class="logo-fallback" style="display: none;">MedicalSenderPro</span>
+  <div class="logo-wrapper">
+    <div class="logo-area">
+      <!-- Your custom logo: replace "logo.png" with actual file -->
+      <img id="mainLogo" class="site-logo" src="logo.png" alt="MedicalSenderPro Logo"
+           onerror="this.onerror=null; this.style.display='none'; document.getElementById('fallbackLogoText').style.display='block';">
+      <span id="fallbackLogoText" class="logo-fallback" style="display: none;">MedicalSenderPro</span>
+    </div>
+    <!-- 👇 Medical sender text under logo (always visible) -->
+    <div class="logo-sub" id="logoSubtext">medical sender · DICOM cloud</div>
   </div>
   <div class="nav-links">
     <a href="#home">Home</a>
@@ -320,329 +345,148 @@
   </div>
 </nav>
 
-<!-- HERO section – greener, smarter -->
+<!-- HERO with Zero Grey explanation (tooltip) -->
 <section class="hero-green" id="home">
   <div class="hero-content">
-    <h1 id="heroMainTitle">Smarter. Faster. Greener.<br>Image Sharing for Radiology.</h1>
-    <p class="hero-sub" id="heroSubText">Seamless DICOM transfer · Eco-friendly workflow · Instant sharing via WhatsApp & Email</p>
-    <div class="green-badge" id="heroBadge">⚡ Zero CD · Zero Plastic · Zero Grey</div>
+    <h1 id="heroTitle">Smarter. Faster. Greener.<br>Image Sharing for Radiology.</h1>
+    <p class="hero-sub" id="heroSub">Seamless DICOM transfer · Eco-friendly workflow · Instant sharing via WhatsApp & Email</p>
+    <div class="green-badge">
+      <span id="badgeText">⚡ Zero CD · Zero Plastic · Zero Grey</span>
+      <span class="info-icon" id="zeroGreyInfo" aria-label="What does Zero Grey mean?">ⓘ</span>
+    </div>
   </div>
 </section>
 
-<!-- FEATURE GRID : 4 core actions from concept images -->
+<!-- FEATURES section -->
 <div class="section" id="features">
   <h2 class="section-title" id="featuresTitle">How MedicalSenderPro Works</h2>
   <div class="feature-grid">
-    <!-- card 1: Upload DICOM Automatically -->
-    <div class="feature-card">
-      <div class="feature-icon">📤</div>
-      <h3 id="feat1Title">Upload DICOM Automatically</h3>
-      <p id="feat1Desc">Seamless upload from your workstation. DICOM Push or drag & drop.</p>
-    </div>
-    <!-- card 2: Share via WhatsApp or Email -->
-    <div class="feature-card">
-      <div class="feature-icon">📱✉️</div>
-      <h3 id="feat2Title">Share via WhatsApp or Email</h3>
-      <p id="feat2Desc">Instantly send secure links to referrers and patients.</p>
-    </div>
-    <!-- card 3: Secure Link Access -->
-    <div class="feature-card">
-      <div class="feature-icon">🔒</div>
-      <h3 id="feat3Title">Secure Link Access</h3>
-      <p id="feat3Desc">Recipients access images securely from anywhere, no software required.</p>
-    </div>
-    <!-- card 4: Automated Process -->
-    <div class="feature-card">
-      <div class="feature-icon">⚙️🤖</div>
-      <h3 id="feat4Title">Automated Process</h3>
-      <p id="feat4Desc">Minimum human interaction reduces errors & saves valuable time.</p>
-    </div>
+    <div class="feature-card"><div class="feature-icon">📤</div><h3 id="f1t">Upload DICOM Automatically</h3><p id="f1d">Seamless upload from your workstation.</p></div>
+    <div class="feature-card"><div class="feature-icon">📱✉️</div><h3 id="f2t">Share via WhatsApp or Email</h3><p id="f2d">Instantly send secure links to referrers and patients.</p></div>
+    <div class="feature-card"><div class="feature-icon">🔒</div><h3 id="f3t">Secure Link Access</h3><p id="f3d">Recipients access images securely from anywhere.</p></div>
+    <div class="feature-card"><div class="feature-icon">⚙️🤖</div><h3 id="f4t">Automated Process</h3><p id="f4d">Minimum human interaction, reduces errors & saves time.</p></div>
   </div>
 </div>
 
-<!-- REAL BENEFITS FOR RADIOLOGY CENTERS -->
-<div class="section" id="benefits" style="padding-top: 0;">
+<!-- BENEFITS -->
+<div class="section" id="benefits" style="padding-top:0">
   <h2 class="section-title" id="benefitsTitle">🌿 Real Benefits for Radiology Centers</h2>
   <div class="benefits-grid">
-    <div class="benefit-item">
-      <div class="benefit-icon">💰</div>
-      <h4 id="benefit1Title">Lower Costs</h4>
-      <p id="benefit1Desc">Reduce expenses on CDs, printing, storage and deliveries.</p>
-    </div>
-    <div class="benefit-item">
-      <div class="benefit-icon">⚡💡</div>
-      <h4 id="benefit2Title">Save Electricity & Resources</h4>
-      <p id="benefit2Desc">Digital workflow reduces power consumption & hardware waste.</p>
-    </div>
-    <div class="benefit-item">
-      <div class="benefit-icon">🌎♻️</div>
-      <h4 id="benefit3Title">Go Green</h4>
-      <p id="benefit3Desc">Eliminate paper and plastic. Support a sustainable future.</p>
-    </div>
-    <div class="benefit-item">
-      <div class="benefit-icon">🛠️⬇️</div>
-      <h4 id="benefit4Title">Less Maintenance</h4>
-      <p id="benefit4Desc">Lower IT and hardware maintenance requirements.</p>
-    </div>
-    <div class="benefit-item">
-      <div class="benefit-icon">📈😊</div>
-      <h4 id="benefit5Title">Improve Efficiency</h4>
-      <p id="benefit5Desc">Faster workflow, happier patients, productive staff.</p>
-    </div>
+    <div class="benefit-item"><div class="benefit-icon">💰</div><h4 id="b1t">Lower Costs</h4><p id="b1d">Reduce expenses on CDs, printing, storage and deliveries.</p></div>
+    <div class="benefit-item"><div class="benefit-icon">⚡💡</div><h4 id="b2t">Save Electricity & Resources</h4><p id="b2d">Digital workflow reduces power consumption.</p></div>
+    <div class="benefit-item"><div class="benefit-icon">🌎♻️</div><h4 id="b3t">Go Green</h4><p id="b3d">Eliminate paper and plastic. Support a sustainable future.</p></div>
+    <div class="benefit-item"><div class="benefit-icon">🛠️⬇️</div><h4 id="b4t">Less Maintenance</h4><p id="b4d">Lower IT and hardware maintenance requirements.</p></div>
+    <div class="benefit-item"><div class="benefit-icon">📈😊</div><h4 id="b5t">Improve Efficiency</h4><p id="b5d">Faster workflow, happier patients, productive staff.</p></div>
   </div>
-
-  <!-- Green mission + save power block -->
   <div class="mission-block">
-    <p id="missionText">✨ Supporting a Greener, Smarter, and Digital Radiology Future ✨<br>
-    <strong id="missionSub">Better for your center. Better for your patients. Better for our planet.</strong></p>
-    <div class="power-save">
-      <span id="savePowerLeft">🔋 Save Power.</span>
-      <span id="savePlanetRight">🌿 Save the Planet.</span>
-    </div>
+    <p id="missionText">✨ Supporting a Greener, Smarter, and Digital Radiology Future ✨<br><strong id="missionSub">Better for your center. Better for your patients. Better for our planet.</strong></p>
+    <div class="power-save"><span id="savePower">🔋 Save Power.</span><span id="savePlanet">🌿 Save the Planet.</span></div>
   </div>
 </div>
 
-<!-- CONTACT SECTION -->
+<!-- CONTACT -->
 <div class="contact-green" id="contact">
-  <p id="contactGreeting" style="font-weight: 500; color: #2b6e48;">📬 Get in touch</p>
+  <p id="contactGreeting">📬 Get in touch</p>
   <div class="contact-email" id="contactEmail">medicalsenderpro@gmail.com</div>
-  <p id="websiteDomain" style="margin-top: 0.8rem; font-size: 0.9rem; color: #3f7860;">www.medicalsenderpro.com</p>
-  <p style="font-size: 0.75rem; margin-top: 1rem; color: #628e78;">© MedicalSenderPro — Green DICOM Sharing</p>
+  <p id="websiteDomain">www.medicalsenderpro.com</p>
 </div>
 
 <script>
-  // ========================
-  // BILINGUAL CONTENT (EN/AR)
-  // ========================
+  // ========== LANGUAGE TOGGLE (EN/AR) ==========
   let isArabic = false;
 
-  // All translatable elements mapping
-  const elements = {
-    heroMainTitle: document.getElementById('heroMainTitle'),
-    heroSubText: document.getElementById('heroSubText'),
-    heroBadge: document.getElementById('heroBadge'),
-    featuresTitle: document.getElementById('featuresTitle'),
-    feat1Title: document.getElementById('feat1Title'),
-    feat1Desc: document.getElementById('feat1Desc'),
-    feat2Title: document.getElementById('feat2Title'),
-    feat2Desc: document.getElementById('feat2Desc'),
-    feat3Title: document.getElementById('feat3Title'),
-    feat3Desc: document.getElementById('feat3Desc'),
-    feat4Title: document.getElementById('feat4Title'),
-    feat4Desc: document.getElementById('feat4Desc'),
-    benefitsTitle: document.getElementById('benefitsTitle'),
-    benefit1Title: document.getElementById('benefit1Title'),
-    benefit1Desc: document.getElementById('benefit1Desc'),
-    benefit2Title: document.getElementById('benefit2Title'),
-    benefit2Desc: document.getElementById('benefit2Desc'),
-    benefit3Title: document.getElementById('benefit3Title'),
-    benefit3Desc: document.getElementById('benefit3Desc'),
-    benefit4Title: document.getElementById('benefit4Title'),
-    benefit4Desc: document.getElementById('benefit4Desc'),
-    benefit5Title: document.getElementById('benefit5Title'),
-    benefit5Desc: document.getElementById('benefit5Desc'),
-    missionText: document.getElementById('missionText'),
-    missionSub: document.getElementById('missionSub'),
-    savePowerLeft: document.getElementById('savePowerLeft'),
-    savePlanetRight: document.getElementById('savePlanetRight'),
-    contactGreeting: document.getElementById('contactGreeting'),
-    contactEmail: document.getElementById('contactEmail'),
-    websiteDomain: document.getElementById('websiteDomain')
-  };
-
-  const enContent = {
-    heroMainTitle: "Smarter. Faster. Greener.<br>Image Sharing for Radiology.",
-    heroSubText: "Seamless DICOM transfer · Eco-friendly workflow · Instant sharing via WhatsApp & Email",
-    heroBadge: "⚡ Zero CD · Zero Plastic · Zero Grey",
-    featuresTitle: "How MedicalSenderPro Works",
-    feat1Title: "Upload DICOM Automatically",
-    feat1Desc: "Seamless upload from your workstation. DICOM Push or drag & drop.",
-    feat2Title: "Share via WhatsApp or Email",
-    feat2Desc: "Instantly send secure links to referrers and patients.",
-    feat3Title: "Secure Link Access",
-    feat3Desc: "Recipients access images securely from anywhere, no software required.",
-    feat4Title: "Automated Process",
-    feat4Desc: "Minimum human interaction reduces errors & saves valuable time.",
-    benefitsTitle: "🌿 Real Benefits for Radiology Centers",
-    benefit1Title: "Lower Costs",
-    benefit1Desc: "Reduce expenses on CDs, printing, storage and deliveries.",
-    benefit2Title: "Save Electricity & Resources",
-    benefit2Desc: "Digital workflow reduces power consumption & hardware waste.",
-    benefit3Title: "Go Green",
-    benefit3Desc: "Eliminate paper and plastic. Support a sustainable future.",
-    benefit4Title: "Less Maintenance",
-    benefit4Desc: "Lower IT and hardware maintenance requirements.",
-    benefit5Title: "Improve Efficiency",
-    benefit5Desc: "Faster workflow, happier patients, productive staff.",
-    missionText: "✨ Supporting a Greener, Smarter, and Digital Radiology Future ✨",
-    missionSub: "Better for your center. Better for your patients. Better for our planet.",
-    savePowerLeft: "🔋 Save Power.",
-    savePlanetRight: "🌿 Save the Planet.",
-    contactGreeting: "📬 Get in touch",
-    contactEmail: "medicalsenderpro@gmail.com",
-    websiteDomain: "www.medicalsenderpro.com"
-  };
-
-  const arContent = {
-    heroMainTitle: "أذكى. أسرع. أخضر.<br>مشاركة الصور للأشعة",
-    heroSubText: "نقل DICOM سلس · سير عمل صديق للبيئة · مشاركة فورية عبر واتساب والبريد الإلكتروني",
-    heroBadge: "⚡ بدون أقراص · بدون بلاستيك · بدون رمادي",
-    featuresTitle: "كيف يعمل MedicalSenderPro",
-    feat1Title: "رفع DICOM تلقائيًا",
-    feat1Desc: "رفع سلس من محطة العمل الخاصة بك. إرسال DICOM أو سحب وإفلات.",
-    feat2Title: "المشاركة عبر واتساب أو البريد",
-    feat2Desc: "إرسال روابط آمنة فورًا إلى الأطباء المحولين والمرضى.",
-    feat3Title: "وصول آمن عبر الرابط",
-    feat3Desc: "يصل المستلمون إلى الصور بشكل آمن من أي مكان، بدون برامج إضافية.",
-    feat4Title: "عملية مؤتمتة بالكامل",
-    feat4Desc: "حد أدنى من التفاعل البشري يقلل الأخطاء ويوفر وقتًا ثمينًا.",
-    benefitsTitle: "🌿 فوائد حقيقية لمراكز الأشعة",
-    benefit1Title: "خفض التكاليف",
-    benefit1Desc: "تقليل النفقات على الأقراص المدمجة والطباعة والتخزين والتوصيل.",
-    benefit2Title: "توفير الكهرباء والموارد",
-    benefit2Desc: "سير العمل الرقمي يقلل استهلاك الطاقة والنفايات التقنية.",
-    benefit3Title: "كن أخضر",
-    benefit3Desc: "القضاء على الورق والبلاستيك. دعم مستقبل مستدام.",
-    benefit4Title: "صيانة أقل",
-    benefit4Desc: "تقليل متطلبات صيانة تكنولوجيا المعلومات والأجهزة.",
-    benefit5Title: "تحسين الكفاءة",
-    benefit5Desc: "سير عمل أسرع، مرضى أسعد، موظفون منتجون.",
-    missionText: "✨ دعم مستقبل أشعة أكثر اخضرارًا وذكاءً ورقمية ✨",
-    missionSub: "أفضل لمركزك. أفضل لمرضاك. أفضل لكوكبنا.",
-    savePowerLeft: "🔋 وفر الطاقة.",
-    savePlanetRight: "🌿 أنقذ الكوكب.",
-    contactGreeting: "📬 تواصل معنا",
-    contactEmail: "medicalsenderpro@gmail.com",
-    websiteDomain: "www.medicalsenderpro.com"
-  };
-
-  function updateLanguage() {
-    const content = isArabic ? arContent : enContent;
-
-    // hero title may contain HTML <br> so we need to set innerHTML safely
-    elements.heroMainTitle.innerHTML = content.heroMainTitle;
-    elements.heroSubText.innerText = content.heroSubText;
-    elements.heroBadge.innerText = content.heroBadge;
-    elements.featuresTitle.innerText = content.featuresTitle;
-    elements.feat1Title.innerText = content.feat1Title;
-    elements.feat1Desc.innerText = content.feat1Desc;
-    elements.feat2Title.innerText = content.feat2Title;
-    elements.feat2Desc.innerText = content.feat2Desc;
-    elements.feat3Title.innerText = content.feat3Title;
-    elements.feat3Desc.innerText = content.feat3Desc;
-    elements.feat4Title.innerText = content.feat4Title;
-    elements.feat4Desc.innerText = content.feat4Desc;
-    elements.benefitsTitle.innerText = content.benefitsTitle;
-    elements.benefit1Title.innerText = content.benefit1Title;
-    elements.benefit1Desc.innerText = content.benefit1Desc;
-    elements.benefit2Title.innerText = content.benefit2Title;
-    elements.benefit2Desc.innerText = content.benefit2Desc;
-    elements.benefit3Title.innerText = content.benefit3Title;
-    elements.benefit3Desc.innerText = content.benefit3Desc;
-    elements.benefit4Title.innerText = content.benefit4Title;
-    elements.benefit4Desc.innerText = content.benefit4Desc;
-    elements.benefit5Title.innerText = content.benefit5Title;
-    elements.benefit5Desc.innerText = content.benefit5Desc;
-    elements.missionText.innerText = content.missionText;
-    elements.missionSub.innerText = content.missionSub;
-    elements.savePowerLeft.innerText = content.savePowerLeft;
-    elements.savePlanetRight.innerText = content.savePlanetRight;
-    elements.contactGreeting.innerText = content.contactGreeting;
-    elements.contactEmail.innerText = content.contactEmail;
-    elements.websiteDomain.innerText = content.websiteDomain;
-
-    // RTL direction
-    if (isArabic) {
-      document.body.classList.add('arabic');
-    } else {
-      document.body.classList.remove('arabic');
+  const content = {
+    en: {
+      heroTitle: "Smarter. Faster. Greener.<br>Image Sharing for Radiology.",
+      heroSub: "Seamless DICOM transfer · Eco-friendly workflow · Instant sharing via WhatsApp & Email",
+      badgeText: "⚡ Zero CD · Zero Plastic · Zero Grey",
+      featuresTitle: "How MedicalSenderPro Works",
+      f1t: "Upload DICOM Automatically", f1d: "Seamless upload from your workstation.",
+      f2t: "Share via WhatsApp or Email", f2d: "Instantly send secure links to referrers and patients.",
+      f3t: "Secure Link Access", f3d: "Recipients access images securely from anywhere.",
+      f4t: "Automated Process", f4d: "Minimum human interaction, reduces errors & saves time.",
+      benefitsTitle: "🌿 Real Benefits for Radiology Centers",
+      b1t: "Lower Costs", b1d: "Reduce expenses on CDs, printing, storage and deliveries.",
+      b2t: "Save Electricity & Resources", b2d: "Digital workflow reduces power consumption.",
+      b3t: "Go Green", b3d: "Eliminate paper and plastic. Support a sustainable future.",
+      b4t: "Less Maintenance", b4d: "Lower IT and hardware maintenance requirements.",
+      b5t: "Improve Efficiency", b5d: "Faster workflow, happier patients, productive staff.",
+      missionText: "✨ Supporting a Greener, Smarter, and Digital Radiology Future ✨",
+      missionSub: "Better for your center. Better for your patients. Better for our planet.",
+      savePower: "🔋 Save Power.", savePlanet: "🌿 Save the Planet.",
+      contactGreeting: "📬 Get in touch", contactEmail: "medicalsenderpro@gmail.com", websiteDomain: "www.medicalsenderpro.com",
+      logoSub: "medical sender · DICOM cloud"
+    },
+    ar: {
+      heroTitle: "أذكى. أسرع. أخضر.<br>مشاركة الصور للأشعة",
+      heroSub: "نقل DICOM سلس · سير عمل صديق للبيئة · مشاركة فورية عبر واتساب والبريد",
+      badgeText: "⚡ بدون أقراص · بدون بلاستيك · رمادي صفري",
+      featuresTitle: "كيف يعمل MedicalSenderPro",
+      f1t: "رفع DICOM تلقائيًا", f1d: "رفع سلس من محطة العمل.",
+      f2t: "المشاركة عبر واتساب أو البريد", f2d: "إرسال روابط آمنة فورية للأطباء والمرضى.",
+      f3t: "وصول آمن عبر الرابط", f3d: "وصول آمن للصور من أي مكان.",
+      f4t: "عملية مؤتمتة بالكامل", f4d: "حد أدنى من التدخل البشري وتوفير الوقت.",
+      benefitsTitle: "🌿 فوائد حقيقية لمراكز الأشعة",
+      b1t: "خفض التكاليف", b1d: "تقليل نفقات الأقراص والطباعة والتخزين.",
+      b2t: "توفير الكهرباء", b2d: "سير العمل الرقمي يقلل استهلاك الطاقة.",
+      b3t: "كن أخضر", b3d: "القضاء على الورق والبلاستيك. مستقبل مستدام.",
+      b4t: "صيانة أقل", b4d: "تقليل متطلبات صيانة الأجهزة.",
+      b5t: "تحسين الكفاءة", b5d: "سير عمل أسرع ومرضى أسعد.",
+      missionText: "✨ دعم مستقبل أشعة أخضر وذكي ورقمي ✨",
+      missionSub: "أفضل لمركزك. أفضل لمرضاك. أفضل لكوكبنا.",
+      savePower: "🔋 وفر الطاقة.", savePlanet: "🌿 أنقذ الكوكب.",
+      contactGreeting: "📬 تواصل معنا", contactEmail: "medicalsenderpro@gmail.com", websiteDomain: "www.medicalsenderpro.com",
+      logoSub: "مرسال طبي · سحابة DICOM"
     }
+  };
+
+  function updateUI() {
+    const lang = isArabic ? 'ar' : 'en';
+    const c = content[lang];
+    document.getElementById('heroTitle').innerHTML = c.heroTitle;
+    document.getElementById('heroSub').innerText = c.heroSub;
+    document.getElementById('badgeText').innerText = c.badgeText;
+    document.getElementById('featuresTitle').innerText = c.featuresTitle;
+    document.getElementById('f1t').innerText = c.f1t; document.getElementById('f1d').innerText = c.f1d;
+    document.getElementById('f2t').innerText = c.f2t; document.getElementById('f2d').innerText = c.f2d;
+    document.getElementById('f3t').innerText = c.f3t; document.getElementById('f3d').innerText = c.f3d;
+    document.getElementById('f4t').innerText = c.f4t; document.getElementById('f4d').innerText = c.f4d;
+    document.getElementById('benefitsTitle').innerHTML = c.benefitsTitle;
+    document.getElementById('b1t').innerText = c.b1t; document.getElementById('b1d').innerText = c.b1d;
+    document.getElementById('b2t').innerText = c.b2t; document.getElementById('b2d').innerText = c.b2d;
+    document.getElementById('b3t').innerText = c.b3t; document.getElementById('b3d').innerText = c.b3d;
+    document.getElementById('b4t').innerText = c.b4t; document.getElementById('b4d').innerText = c.b4d;
+    document.getElementById('b5t').innerText = c.b5t; document.getElementById('b5d').innerText = c.b5d;
+    document.getElementById('missionText').innerHTML = c.missionText + "<br><strong>" + c.missionSub + "</strong>";
+    document.getElementById('savePower').innerText = c.savePower;
+    document.getElementById('savePlanet').innerText = c.savePlanet;
+    document.getElementById('contactGreeting').innerText = c.contactGreeting;
+    document.getElementById('contactEmail').innerText = c.contactEmail;
+    document.getElementById('websiteDomain').innerText = c.websiteDomain;
+    document.getElementById('logoSubtext').innerText = c.logoSub;
+
+    if (isArabic) document.body.classList.add('arabic');
+    else document.body.classList.remove('arabic');
   }
 
-  // toggle function
-  function toggleLang() {
-    isArabic = !isArabic;
-    updateLanguage();
+  document.getElementById('langToggleBtn').addEventListener('click', () => { isArabic = !isArabic; updateUI(); });
+  updateUI();
+
+  // Logo fallback handler
+  const logo = document.getElementById('mainLogo');
+  const fallbackSpan = document.getElementById('fallbackLogoText');
+  if (logo) {
+    logo.onerror = () => { logo.style.display = 'none'; fallbackSpan.style.display = 'inline-block'; };
+    logo.onload = () => { fallbackSpan.style.display = 'none'; logo.style.display = 'block'; };
   }
 
-  const langBtn = document.getElementById('langToggleBtn');
-  if (langBtn) langBtn.addEventListener('click', toggleLang);
-
-  // smooth scroll for navigation
+  // smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === "#" || targetId === "") return;
-      const targetEl = document.querySelector(targetId);
-      if (targetEl) {
-        e.preventDefault();
-        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
     });
   });
-
-  // ============= LOGO HANDLER: use "logo.png" automatically =============
-  const logoImg = document.getElementById('mainLogo');
-  const fallbackSpan = document.getElementById('fallbackLogoText');
-  
-  // If the user has placed logo.png in the same directory (GitHub Pages), it will load.
-  // If not found, we show the elegant textual fallback (MedicalSenderPro).
-  if (logoImg) {
-    logoImg.onerror = function() {
-      this.style.display = 'none';
-      if (fallbackSpan) fallbackSpan.style.display = 'inline-block';
-    };
-    logoImg.onload = function() {
-      if (fallbackSpan) fallbackSpan.style.display = 'none';
-      this.style.display = 'block';
-    };
-    // extra check: if src is empty or invalid after load delay
-    setTimeout(() => {
-      if (logoImg.naturalWidth === 0) {
-        logoImg.style.display = 'none';
-        if (fallbackSpan) fallbackSpan.style.display = 'inline-block';
-      }
-    }, 200);
-  }
-
-  // make sure there is no grey bar from default active windows message? 
-  // we override any accidental border
-  const removeAnyGrey = () => {
-    const allElements = document.querySelectorAll('*');
-    for (let el of allElements) {
-      const bg = window.getComputedStyle(el).backgroundColor;
-      if (bg && (bg === 'rgb(128, 128, 128)' || bg === 'rgb(169, 169, 169)' || bg === 'rgb(211, 211, 211)')) {
-        if (!el.classList.contains('lang-btn') && !el.classList.contains('green-badge')) {
-          // do not force override if it's legitimate icon, but safe: we only reset if it looks like unintended grey bar
-        }
-      }
-    }
-  };
-  removeAnyGrey();
-
-  // Extra: no grey borders, no box-shadow nightmares
-  const styleOverride = document.createElement('style');
-  styleOverride.textContent = `
-    hr, .grey-bg, [style*="background:#ccc"], [style*="background:gray"] { display: none !important; }
-    body, .navbar, .hero-green, .feature-card, .benefit-item, .mission-block, .contact-green {
-      box-shadow: none !important;
-      border: none !important;
-    }
-    .feature-card, .benefit-item {
-      border: 1px solid #def0e4 !important;
-    }
-    ::-webkit-scrollbar {
-      width: 6px;
-      background: #eef5ea;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #9fc7b0;
-      border-radius: 8px;
-    }
-  `;
-  document.head.appendChild(styleOverride);
-  
-  console.log("✅ MedicalSenderPro LIVE — Custom logo: use 'logo.png' file. Fully green design, no grey bars, inspired by your concept images.");
 </script>
 </body>
 </html>
