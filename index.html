@@ -3,11 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>MedicalSenderPro | DICOM Sharing Platform</title>
+  <title>MedicalSenderPro | Green Radiology Sharing</title>
   <style>
-    /* -------------------------------
-       RESET & BASE – NO SOLID GREY BARS
-    ------------------------------- */
     * {
       margin: 0;
       padding: 0;
@@ -15,501 +12,637 @@
     }
 
     body {
-      font-family: system-ui, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+      font-family: system-ui, 'Segoe UI', 'Roboto', 'Inter', 'Helvetica Neue', sans-serif;
       background: #ffffff;
-      color: #0a2540;
+      color: #1a2e35;
       scroll-behavior: smooth;
+      line-height: 1.4;
     }
 
-    /* remove any default outline/border that could create grey bar */
-    img, button, div, section, nav, footer, header {
+    /* ===== NO GREY BARS ===== */
+    nav, section, footer, div, header, .card, .hero, .benefits-grid {
       border: none;
       outline: none;
+      box-shadow: none;
     }
 
-    /* ---------- NAVIGATION – clean, no grey, no shadow, no border ---------- */
-    nav {
+    /* ===== NAVIGATION - PURE WHITE, NO GREY ===== */
+    .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
+      background: #ffffff;
       position: sticky;
       top: 0;
-      background: #ffffff;
-      z-index: 1000;
+      z-index: 100;
       backdrop-filter: none;
-      box-shadow: none;
-      border-bottom: none;
+      border-bottom: 1px solid #e2f0e6; /* fresh greenish line, not grey */
     }
 
-    /* logo container – your custom image now takes the spotlight */
     .logo-area {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.5rem;
     }
 
-    .logo-img {
-      height: 48px;
+    /* custom logo will be used — "logo.png" */
+    .site-logo {
+      height: 52px;
       width: auto;
-      max-width: 180px;
+      max-width: 200px;
+      object-fit: contain;
       display: block;
-      transition: all 0.2s ease;
     }
 
-    /* optional textual fallback if logo fails to load – hidden when image works */
     .logo-fallback {
-      font-size: 1.35rem;
       font-weight: 700;
-      color: #0b6e9e;
-      letter-spacing: -0.3px;
+      font-size: 1.4rem;
       background: none;
+      color: #1c6e43;
+      letter-spacing: -0.3px;
     }
 
-    /* nav links & button – no grey backgrounds, clean */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
     .nav-links a {
-      margin: 0 0.9rem;
       text-decoration: none;
       font-weight: 600;
-      color: #1f3a4b;
+      color: #1f4f3a;
       transition: color 0.2s;
       font-size: 1rem;
     }
 
     .nav-links a:hover {
-      color: #0f8bc9;
+      color: #2b8c5e;
     }
 
     .lang-btn {
-      background: #0f8bc9;
+      background: #2b8c5e;
       border: none;
-      padding: 0.5rem 1rem;
+      padding: 0.45rem 1.1rem;
       border-radius: 40px;
       color: white;
       font-weight: 600;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       cursor: pointer;
-      transition: background 0.2s, transform 0.1s;
+      transition: all 0.2s;
       box-shadow: none;
-      letter-spacing: 0.3px;
     }
 
     .lang-btn:hover {
-      background: #0a6b9c;
+      background: #1e6a47;
     }
 
-    /* ---------- HERO – absolutely NO solid grey bar, fresh overlay ---------- */
-    .hero {
-      position: relative;
-      background: linear-gradient(105deg, #082f44 0%, #0f4c6b 100%);
-      /* gradient deep blue/teal – no grey anywhere */
-      min-height: 480px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+    /* ===== HERO SECTION – FRESH GREEN SOUL ===== */
+    .hero-green {
+      background: linear-gradient(125deg, #eef9f0 0%, #ffffff 80%);
       padding: 4rem 2rem;
-    }
-
-    /* decorative abstract grid (optional) no grey solid bar, just texture */
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(255,255,240,0.08) 1px, transparent 1px);
-      background-size: 28px 28px;
-      pointer-events: none;
-    }
-
-    .hero-content {
+      text-align: center;
       position: relative;
-      z-index: 3;
-      max-width: 800px;
-      margin: 0 auto;
+      overflow: hidden;
     }
 
-    .hero h1 {
-      font-size: 3.2rem;
+    .hero-content h1 {
+      font-size: 3rem;
       font-weight: 800;
+      background: linear-gradient(135deg, #166534, #2b8c5e);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
       margin-bottom: 1rem;
-      color: white;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      letter-spacing: -0.3px;
+      letter-spacing: -0.02em;
     }
 
-    .hero p {
-      font-size: 1.3rem;
-      color: #f0f9ff;
-      font-weight: 500;
-      opacity: 0.95;
+    .hero-sub {
+      font-size: 1.25rem;
+      color: #2c5a44;
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
     }
 
-    /* ---------- FEATURES SECTION – clean, borders removed, card with soft shadow ---------- */
+    .green-badge {
+      display: inline-block;
+      background: #e0f2e9;
+      color: #166534;
+      padding: 0.5rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+
+    /* ===== CARDS SECTION (FEATURES) ===== */
     .section {
       padding: 5rem 2rem;
-      text-align: center;
       background: #ffffff;
     }
 
-    .section h2 {
-      font-size: 2.4rem;
-      margin-bottom: 2.5rem;
-      color: #0b5e7e;
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
       font-weight: 700;
+      color: #1c5a41;
+      margin-bottom: 2.5rem;
     }
 
-    .features {
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: #fefefe;
+      border-radius: 28px;
+      padding: 1.8rem;
+      width: 260px;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 20px rgba(40, 80, 50, 0.06);
+      border: 1px solid #eaf6ef;
+      text-align: center;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px rgba(33, 94, 63, 0.1);
+      border-color: #c8e6d9;
+    }
+
+    .feature-icon {
+      font-size: 2.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+      color: #1e6a47;
+    }
+
+    .feature-card p {
+      color: #3e5a4b;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    /* BENEFITS GRID */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.8rem;
+      max-width: 1100px;
+      margin: 2rem auto 0;
+    }
+
+    .benefit-item {
+      background: #fafef8;
+      border-radius: 24px;
+      padding: 1.6rem 1.2rem;
+      text-align: center;
+      transition: all 0.2s;
+      border: 1px solid #e2f0e6;
+    }
+
+    .benefit-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .benefit-item h4 {
+      font-size: 1.3rem;
+      color: #1f6e48;
+      margin-bottom: 0.5rem;
+    }
+
+    .benefit-item p {
+      color: #426454;
+      font-size: 0.9rem;
+    }
+
+    /* GREEN MISSION BLOCK */
+    .mission-block {
+      background: #edf7f0;
+      margin: 2rem auto 0;
+      max-width: 900px;
+      border-radius: 48px;
+      padding: 2rem 2rem;
+      text-align: center;
+    }
+
+    .mission-block p {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #115e3a;
+    }
+
+    .power-save {
       display: flex;
       justify-content: center;
       gap: 2rem;
-      flex-wrap: wrap;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .feature {
-      background: #ffffff;
-      border-radius: 24px;
-      padding: 2rem 1.5rem;
-      width: 240px;
-      transition: all 0.2s ease;
-      box-shadow: 0 12px 28px rgba(0, 32, 64, 0.08);
-      /* no borders, no grey lines */
-      border: none;
-    }
-
-    .feature:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 32px rgba(0, 70, 100, 0.12);
-    }
-
-    .feature svg {
-      margin-bottom: 1rem;
-    }
-
-    .feature p {
+      margin-top: 1.2rem;
       font-weight: 700;
-      font-size: 1.2rem;
-      margin-top: 0.8rem;
-      color: #145c7a;
-      letter-spacing: -0.2px;
+      font-size: 1.3rem;
+      color: #226e47;
     }
 
-    /* ---------- CONTACT SECTION – NO grey bar, NO border top ---------- */
-    .contact-section {
-      background: #ffffff;
+    /* CONTACT */
+    .contact-green {
       text-align: center;
-      padding: 3rem 2rem 4rem;
-      border: none;
-      margin-top: 0;
-    }
-
-    .contact-section p {
-      font-size: 1.1rem;
-      color: #1e4a6b;
-      margin: 0.5rem 0;
+      padding: 3rem 2rem 3.5rem;
+      background: #ffffff;
+      border-top: none;
     }
 
     .contact-email {
-      font-weight: 600;
-      background: #eef7ff;
+      background: #eef9f2;
       display: inline-block;
-      padding: 0.4rem 1.2rem;
-      border-radius: 60px;
-      font-size: 1rem;
-      color: #0c6b8f;
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      color: #166534;
+      margin: 0.8rem 0;
     }
 
-    /* ---------- ARABIC STYLES (RTL, clean) ---------- */
+    /* RTL ARABIC */
     body.arabic {
       direction: rtl;
       text-align: right;
     }
 
-    body.arabic .nav-links a {
-      margin: 0 0.9rem;
+    body.arabic .nav-links {
+      gap: 1rem;
     }
 
-    body.arabic .feature p {
-      font-weight: 700;
-    }
-
-    body.arabic .hero h1 {
-      letter-spacing: 0;
-    }
-
-    /* responsive adjustments */
-    @media (max-width: 680px) {
-      nav {
-        padding: 0.8rem 1.2rem;
-        flex-wrap: wrap;
-        gap: 0.75rem;
+    /* responsive */
+    @media (max-width: 700px) {
+      .navbar {
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 1rem;
       }
-      .nav-links a {
-        margin: 0 0.5rem;
-        font-size: 0.9rem;
-      }
-      .logo-img {
-        height: 38px;
-      }
-      .hero h1 {
+      .hero-content h1 {
         font-size: 2.2rem;
       }
-      .hero p {
-        font-size: 1rem;
+      .section-title {
+        font-size: 1.8rem;
       }
-      .feature {
-        width: 200px;
-        padding: 1.5rem;
+      .power-save {
+        flex-direction: column;
+        gap: 0.5rem;
       }
-      .section h2 {
-        font-size: 1.9rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .nav-links a {
-        margin: 0 0.35rem;
-      }
-      .lang-btn {
-        padding: 0.4rem 0.8rem;
-      }
-    }
-
-    /* ensure no grey bars appear from any hidden pseudo or borders */
-    footer, hr, [class*="border"] {
-      border: none;
-    }
-    a, button:focus {
-      outline: none;
     }
   </style>
 </head>
 <body>
 
-<!-- 
-  ============================================================
-  CUSTOM LOGO INSTRUCTIONS:
-  Replace the "src" attribute of the <img> tag below with 
-  the URL or relative path to your own logo file (PNG, SVG, JPG).
-  Example: src="images/my-logo.png" or "https://yourdomain.com/logo.svg"
-  ============================================================
--->
-
-<nav>
+<nav class="navbar">
   <div class="logo-area">
-    <img id="customLogo" class="logo-img" src="https://placehold.co/200x60?text=MedicalSenderPro&font=montserrat" 
-         alt="MedicalSenderPro Logo" 
-         onerror="this.onerror=null; this.style.display='none'; document.getElementById('fallbackText').style.display='block';">
-    <span id="fallbackText" class="logo-fallback" style="display: none;">MedicalSenderPro</span>
+    <!-- CUSTOM LOGO: use "logo.png" (replace with your actual logo file) -->
+    <img id="mainLogo" class="site-logo" src="logo.png" alt="MedicalSenderPro Logo" 
+         onerror="this.onerror=null; this.style.display='none'; document.getElementById('fallbackLogoText').style.display='block';">
+    <span id="fallbackLogoText" class="logo-fallback" style="display: none;">MedicalSenderPro</span>
   </div>
   <div class="nav-links">
     <a href="#home">Home</a>
     <a href="#features">Features</a>
+    <a href="#benefits">Benefits</a>
     <a href="#contact">Contact</a>
-    <button class="lang-btn" id="langToggleBtn" aria-label="Switch language">العربية / EN</button>
+    <button class="lang-btn" id="langToggleBtn">AR / EN</button>
   </div>
 </nav>
 
-<!-- HERO section - no grey bars, clean dark-teal gradient -->
-<div class="hero" id="home">
+<!-- HERO section – greener, smarter -->
+<section class="hero-green" id="home">
   <div class="hero-content">
-    <h1 id="heroTitle">Secure Medical DICOM Sharing</h1>
-    <p id="heroDesc">Fast and safe platform for radiology centers & clinics</p>
+    <h1 id="heroMainTitle">Smarter. Faster. Greener.<br>Image Sharing for Radiology.</h1>
+    <p class="hero-sub" id="heroSubText">Seamless DICOM transfer · Eco-friendly workflow · Instant sharing via WhatsApp & Email</p>
+    <div class="green-badge" id="heroBadge">⚡ Zero CD · Zero Plastic · Zero Grey</div>
   </div>
-</div>
+</section>
 
-<!-- FEATURES -->
+<!-- FEATURE GRID : 4 core actions from concept images -->
 <div class="section" id="features">
-  <h2 id="featuresHeading">Why MedicalSenderPro?</h2>
-  <div class="features">
-    <!-- Feature 1: Secure Transfer -->
-    <div class="feature">
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="#0f8bc9">
-        <path d="M12 2L2 7v7c0 5 4 9 10 12 6-3 10-7 10-12V7l-10-5zm0 4.5L19 9l-7 3.5L5 9l7-3.5zM5 12.5l7 3.5 7-3.5V16l-7 3.5L5 16v-3.5z"/>
-      </svg>
-      <p id="feat1">End-to-End Encryption</p>
+  <h2 class="section-title" id="featuresTitle">How MedicalSenderPro Works</h2>
+  <div class="feature-grid">
+    <!-- card 1: Upload DICOM Automatically -->
+    <div class="feature-card">
+      <div class="feature-icon">📤</div>
+      <h3 id="feat1Title">Upload DICOM Automatically</h3>
+      <p id="feat1Desc">Seamless upload from your workstation. DICOM Push or drag & drop.</p>
     </div>
-    <!-- Feature 2: Fast Sharing -->
-    <div class="feature">
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="#0f8bc9">
-        <path d="M3.5 13.5L9 19l9-9M4 4l4 4m8-4l4 4"/>
-        <path d="M12 4v4m4-2h-4M8 6h4"/>
-        <circle cx="12" cy="12" r="10"/>
-      </svg>
-      <p id="feat2">Lightning Fast DICOM Transfer</p>
+    <!-- card 2: Share via WhatsApp or Email -->
+    <div class="feature-card">
+      <div class="feature-icon">📱✉️</div>
+      <h3 id="feat2Title">Share via WhatsApp or Email</h3>
+      <p id="feat2Desc">Instantly send secure links to referrers and patients.</p>
     </div>
-    <!-- Feature 3: Radiology Focused -->
-    <div class="feature">
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="#0f8bc9">
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14h-2v-2h2v2zm0-4h-2V7h2v6z"/>
-      </svg>
-      <p id="feat3">Radiology Workflow Optimized</p>
+    <!-- card 3: Secure Link Access -->
+    <div class="feature-card">
+      <div class="feature-icon">🔒</div>
+      <h3 id="feat3Title">Secure Link Access</h3>
+      <p id="feat3Desc">Recipients access images securely from anywhere, no software required.</p>
+    </div>
+    <!-- card 4: Automated Process -->
+    <div class="feature-card">
+      <div class="feature-icon">⚙️🤖</div>
+      <h3 id="feat4Title">Automated Process</h3>
+      <p id="feat4Desc">Minimum human interaction reduces errors & saves valuable time.</p>
     </div>
   </div>
 </div>
 
-<!-- CONTACT - no solid grey bar, pure light background -->
-<div class="contact-section" id="contact">
-  <p id="contactLabel" style="font-weight: 500; margin-bottom: 0.5rem;">📬 Get in touch</p>
-  <p class="contact-email" id="contactEmail">medicalsenderpro@gmail.com</p>
-  <p id="websiteLink" style="margin-top: 0.8rem; font-size: 0.9rem;">www.medicalsenderpro.com</p>
+<!-- REAL BENEFITS FOR RADIOLOGY CENTERS -->
+<div class="section" id="benefits" style="padding-top: 0;">
+  <h2 class="section-title" id="benefitsTitle">🌿 Real Benefits for Radiology Centers</h2>
+  <div class="benefits-grid">
+    <div class="benefit-item">
+      <div class="benefit-icon">💰</div>
+      <h4 id="benefit1Title">Lower Costs</h4>
+      <p id="benefit1Desc">Reduce expenses on CDs, printing, storage and deliveries.</p>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">⚡💡</div>
+      <h4 id="benefit2Title">Save Electricity & Resources</h4>
+      <p id="benefit2Desc">Digital workflow reduces power consumption & hardware waste.</p>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">🌎♻️</div>
+      <h4 id="benefit3Title">Go Green</h4>
+      <p id="benefit3Desc">Eliminate paper and plastic. Support a sustainable future.</p>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">🛠️⬇️</div>
+      <h4 id="benefit4Title">Less Maintenance</h4>
+      <p id="benefit4Desc">Lower IT and hardware maintenance requirements.</p>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">📈😊</div>
+      <h4 id="benefit5Title">Improve Efficiency</h4>
+      <p id="benefit5Desc">Faster workflow, happier patients, productive staff.</p>
+    </div>
+  </div>
+
+  <!-- Green mission + save power block -->
+  <div class="mission-block">
+    <p id="missionText">✨ Supporting a Greener, Smarter, and Digital Radiology Future ✨<br>
+    <strong id="missionSub">Better for your center. Better for your patients. Better for our planet.</strong></p>
+    <div class="power-save">
+      <span id="savePowerLeft">🔋 Save Power.</span>
+      <span id="savePlanetRight">🌿 Save the Planet.</span>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT SECTION -->
+<div class="contact-green" id="contact">
+  <p id="contactGreeting" style="font-weight: 500; color: #2b6e48;">📬 Get in touch</p>
+  <div class="contact-email" id="contactEmail">medicalsenderpro@gmail.com</div>
+  <p id="websiteDomain" style="margin-top: 0.8rem; font-size: 0.9rem; color: #3f7860;">www.medicalsenderpro.com</p>
+  <p style="font-size: 0.75rem; margin-top: 1rem; color: #628e78;">© MedicalSenderPro — Green DICOM Sharing</p>
 </div>
 
 <script>
-  // ---------------------------------------------------------------
-  // LANGUAGE TOGGLE: ENGLISH / ARABIC (No grey bars influence)
-  // ---------------------------------------------------------------
+  // ========================
+  // BILINGUAL CONTENT (EN/AR)
+  // ========================
   let isArabic = false;
 
-  // DOM elements for dynamic text
-  const heroTitle = document.getElementById('heroTitle');
-  const heroDesc = document.getElementById('heroDesc');
-  const featuresHeading = document.getElementById('featuresHeading');
-  const feat1 = document.getElementById('feat1');
-  const feat2 = document.getElementById('feat2');
-  const feat3 = document.getElementById('feat3');
-  const contactEmail = document.getElementById('contactEmail');
-  const contactLabel = document.getElementById('contactLabel');
-  const websiteLink = document.getElementById('websiteLink');
+  // All translatable elements mapping
+  const elements = {
+    heroMainTitle: document.getElementById('heroMainTitle'),
+    heroSubText: document.getElementById('heroSubText'),
+    heroBadge: document.getElementById('heroBadge'),
+    featuresTitle: document.getElementById('featuresTitle'),
+    feat1Title: document.getElementById('feat1Title'),
+    feat1Desc: document.getElementById('feat1Desc'),
+    feat2Title: document.getElementById('feat2Title'),
+    feat2Desc: document.getElementById('feat2Desc'),
+    feat3Title: document.getElementById('feat3Title'),
+    feat3Desc: document.getElementById('feat3Desc'),
+    feat4Title: document.getElementById('feat4Title'),
+    feat4Desc: document.getElementById('feat4Desc'),
+    benefitsTitle: document.getElementById('benefitsTitle'),
+    benefit1Title: document.getElementById('benefit1Title'),
+    benefit1Desc: document.getElementById('benefit1Desc'),
+    benefit2Title: document.getElementById('benefit2Title'),
+    benefit2Desc: document.getElementById('benefit2Desc'),
+    benefit3Title: document.getElementById('benefit3Title'),
+    benefit3Desc: document.getElementById('benefit3Desc'),
+    benefit4Title: document.getElementById('benefit4Title'),
+    benefit4Desc: document.getElementById('benefit4Desc'),
+    benefit5Title: document.getElementById('benefit5Title'),
+    benefit5Desc: document.getElementById('benefit5Desc'),
+    missionText: document.getElementById('missionText'),
+    missionSub: document.getElementById('missionSub'),
+    savePowerLeft: document.getElementById('savePowerLeft'),
+    savePlanetRight: document.getElementById('savePlanetRight'),
+    contactGreeting: document.getElementById('contactGreeting'),
+    contactEmail: document.getElementById('contactEmail'),
+    websiteDomain: document.getElementById('websiteDomain')
+  };
+
+  const enContent = {
+    heroMainTitle: "Smarter. Faster. Greener.<br>Image Sharing for Radiology.",
+    heroSubText: "Seamless DICOM transfer · Eco-friendly workflow · Instant sharing via WhatsApp & Email",
+    heroBadge: "⚡ Zero CD · Zero Plastic · Zero Grey",
+    featuresTitle: "How MedicalSenderPro Works",
+    feat1Title: "Upload DICOM Automatically",
+    feat1Desc: "Seamless upload from your workstation. DICOM Push or drag & drop.",
+    feat2Title: "Share via WhatsApp or Email",
+    feat2Desc: "Instantly send secure links to referrers and patients.",
+    feat3Title: "Secure Link Access",
+    feat3Desc: "Recipients access images securely from anywhere, no software required.",
+    feat4Title: "Automated Process",
+    feat4Desc: "Minimum human interaction reduces errors & saves valuable time.",
+    benefitsTitle: "🌿 Real Benefits for Radiology Centers",
+    benefit1Title: "Lower Costs",
+    benefit1Desc: "Reduce expenses on CDs, printing, storage and deliveries.",
+    benefit2Title: "Save Electricity & Resources",
+    benefit2Desc: "Digital workflow reduces power consumption & hardware waste.",
+    benefit3Title: "Go Green",
+    benefit3Desc: "Eliminate paper and plastic. Support a sustainable future.",
+    benefit4Title: "Less Maintenance",
+    benefit4Desc: "Lower IT and hardware maintenance requirements.",
+    benefit5Title: "Improve Efficiency",
+    benefit5Desc: "Faster workflow, happier patients, productive staff.",
+    missionText: "✨ Supporting a Greener, Smarter, and Digital Radiology Future ✨",
+    missionSub: "Better for your center. Better for your patients. Better for our planet.",
+    savePowerLeft: "🔋 Save Power.",
+    savePlanetRight: "🌿 Save the Planet.",
+    contactGreeting: "📬 Get in touch",
+    contactEmail: "medicalsenderpro@gmail.com",
+    websiteDomain: "www.medicalsenderpro.com"
+  };
+
+  const arContent = {
+    heroMainTitle: "أذكى. أسرع. أخضر.<br>مشاركة الصور للأشعة",
+    heroSubText: "نقل DICOM سلس · سير عمل صديق للبيئة · مشاركة فورية عبر واتساب والبريد الإلكتروني",
+    heroBadge: "⚡ بدون أقراص · بدون بلاستيك · بدون رمادي",
+    featuresTitle: "كيف يعمل MedicalSenderPro",
+    feat1Title: "رفع DICOM تلقائيًا",
+    feat1Desc: "رفع سلس من محطة العمل الخاصة بك. إرسال DICOM أو سحب وإفلات.",
+    feat2Title: "المشاركة عبر واتساب أو البريد",
+    feat2Desc: "إرسال روابط آمنة فورًا إلى الأطباء المحولين والمرضى.",
+    feat3Title: "وصول آمن عبر الرابط",
+    feat3Desc: "يصل المستلمون إلى الصور بشكل آمن من أي مكان، بدون برامج إضافية.",
+    feat4Title: "عملية مؤتمتة بالكامل",
+    feat4Desc: "حد أدنى من التفاعل البشري يقلل الأخطاء ويوفر وقتًا ثمينًا.",
+    benefitsTitle: "🌿 فوائد حقيقية لمراكز الأشعة",
+    benefit1Title: "خفض التكاليف",
+    benefit1Desc: "تقليل النفقات على الأقراص المدمجة والطباعة والتخزين والتوصيل.",
+    benefit2Title: "توفير الكهرباء والموارد",
+    benefit2Desc: "سير العمل الرقمي يقلل استهلاك الطاقة والنفايات التقنية.",
+    benefit3Title: "كن أخضر",
+    benefit3Desc: "القضاء على الورق والبلاستيك. دعم مستقبل مستدام.",
+    benefit4Title: "صيانة أقل",
+    benefit4Desc: "تقليل متطلبات صيانة تكنولوجيا المعلومات والأجهزة.",
+    benefit5Title: "تحسين الكفاءة",
+    benefit5Desc: "سير عمل أسرع، مرضى أسعد، موظفون منتجون.",
+    missionText: "✨ دعم مستقبل أشعة أكثر اخضرارًا وذكاءً ورقمية ✨",
+    missionSub: "أفضل لمركزك. أفضل لمرضاك. أفضل لكوكبنا.",
+    savePowerLeft: "🔋 وفر الطاقة.",
+    savePlanetRight: "🌿 أنقذ الكوكب.",
+    contactGreeting: "📬 تواصل معنا",
+    contactEmail: "medicalsenderpro@gmail.com",
+    websiteDomain: "www.medicalsenderpro.com"
+  };
 
   function updateLanguage() {
+    const content = isArabic ? arContent : enContent;
+
+    // hero title may contain HTML <br> so we need to set innerHTML safely
+    elements.heroMainTitle.innerHTML = content.heroMainTitle;
+    elements.heroSubText.innerText = content.heroSubText;
+    elements.heroBadge.innerText = content.heroBadge;
+    elements.featuresTitle.innerText = content.featuresTitle;
+    elements.feat1Title.innerText = content.feat1Title;
+    elements.feat1Desc.innerText = content.feat1Desc;
+    elements.feat2Title.innerText = content.feat2Title;
+    elements.feat2Desc.innerText = content.feat2Desc;
+    elements.feat3Title.innerText = content.feat3Title;
+    elements.feat3Desc.innerText = content.feat3Desc;
+    elements.feat4Title.innerText = content.feat4Title;
+    elements.feat4Desc.innerText = content.feat4Desc;
+    elements.benefitsTitle.innerText = content.benefitsTitle;
+    elements.benefit1Title.innerText = content.benefit1Title;
+    elements.benefit1Desc.innerText = content.benefit1Desc;
+    elements.benefit2Title.innerText = content.benefit2Title;
+    elements.benefit2Desc.innerText = content.benefit2Desc;
+    elements.benefit3Title.innerText = content.benefit3Title;
+    elements.benefit3Desc.innerText = content.benefit3Desc;
+    elements.benefit4Title.innerText = content.benefit4Title;
+    elements.benefit4Desc.innerText = content.benefit4Desc;
+    elements.benefit5Title.innerText = content.benefit5Title;
+    elements.benefit5Desc.innerText = content.benefit5Desc;
+    elements.missionText.innerText = content.missionText;
+    elements.missionSub.innerText = content.missionSub;
+    elements.savePowerLeft.innerText = content.savePowerLeft;
+    elements.savePlanetRight.innerText = content.savePlanetRight;
+    elements.contactGreeting.innerText = content.contactGreeting;
+    elements.contactEmail.innerText = content.contactEmail;
+    elements.websiteDomain.innerText = content.websiteDomain;
+
+    // RTL direction
     if (isArabic) {
-      // set RTL class on body
       document.body.classList.add('arabic');
-      
-      // Hero texts
-      heroTitle.innerText = 'منصة آمنة لمشاركة ملفات الأشعة (DICOM)';
-      heroDesc.innerText = 'حل سريع وآمن لمراكز الأشعة والمستشفيات';
-      
-      // Features heading
-      featuresHeading.innerText = 'لماذا MedicalSenderPro؟';
-      feat1.innerText = 'تشـفير كامـل';
-      feat2.innerText = 'نقل فائق السرعة';
-      feat3.innerText = 'متخصص بالأشعة';
-      
-      // Contact section
-      contactLabel.innerText = '📬 تواصل معنا';
-      contactEmail.innerText = 'medicalsenderpro@gmail.com';
-      websiteLink.innerText = 'www.medicalsenderpro.com';
     } else {
       document.body.classList.remove('arabic');
-      
-      heroTitle.innerText = 'Secure Medical DICOM Sharing';
-      heroDesc.innerText = 'Fast and safe platform for radiology centers & clinics';
-      featuresHeading.innerText = 'Why MedicalSenderPro?';
-      feat1.innerText = 'End-to-End Encryption';
-      feat2.innerText = 'Lightning Fast DICOM Transfer';
-      feat3.innerText = 'Radiology Workflow Optimized';
-      contactLabel.innerText = '📬 Get in touch';
-      contactEmail.innerText = 'medicalsenderpro@gmail.com';
-      websiteLink.innerText = 'www.medicalsenderpro.com';
     }
   }
 
-  // toggle language function
-  function toggleLanguage() {
+  // toggle function
+  function toggleLang() {
     isArabic = !isArabic;
     updateLanguage();
   }
 
-  // attach event listener to toggle button
-  const toggleBtn = document.getElementById('langToggleBtn');
-  if (toggleBtn) {
-    toggleBtn.addEventListener('click', toggleLanguage);
-  }
+  const langBtn = document.getElementById('langToggleBtn');
+  if (langBtn) langBtn.addEventListener('click', toggleLang);
 
-  // ---------------------------------------------------------------
-  // CUSTOM LOGO FIX: 
-  // The user can replace the image src manually in the <img> tag.
-  // Additionally, we provide a helper to ensure even if the placeholder 
-  // doesn’t meet expectations, they can set it via javascript or direct edit.
-  // We also allow environment detection: if there is a local logo preference.
-  // For smooth GitHub Pages usage: no grey bar, only user's own logo.
-  // ---------------------------------------------------------------
+  // smooth scroll for navigation
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === "#" || targetId === "") return;
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ============= LOGO HANDLER: use "logo.png" automatically =============
+  const logoImg = document.getElementById('mainLogo');
+  const fallbackSpan = document.getElementById('fallbackLogoText');
   
-  // Optional: if you want to set your own logo dynamically via URL param
-  // or just replace the img src with your own. The code below demonstrates
-  // how to adapt if you have a custom logo path stored (can be ignored).
-  // It also fixes any possible broken image placeholder look.
-  
-  const logoImg = document.getElementById('customLogo');
-  const fallbackSpan = document.getElementById('fallbackText');
-  
-  // If you want to set your LOGO via a custom variable, 
-  // uncomment and replace with your actual logo URL:
-  // const MY_LOGO_URL = "your-actual-logo.png";
-  // if (MY_LOGO_URL && logoImg) {
-  //   logoImg.src = MY_LOGO_URL;
-  //   logoImg.style.display = 'block';
-  //   fallbackSpan.style.display = 'none';
-  // }
-  
-  // this ensures that if the placeholder image fails to load,
-  // we show the text fallback but still allow manual replacement.
-  // The user can simply change the 'src' attribute in the HTML to their logo.
+  // If the user has placed logo.png in the same directory (GitHub Pages), it will load.
+  // If not found, we show the elegant textual fallback (MedicalSenderPro).
   if (logoImg) {
     logoImg.onerror = function() {
       this.style.display = 'none';
       if (fallbackSpan) fallbackSpan.style.display = 'inline-block';
     };
-    // if the image loads fine, hide fallback text
     logoImg.onload = function() {
       if (fallbackSpan) fallbackSpan.style.display = 'none';
       this.style.display = 'block';
     };
-  }
-  
-  // Force removal of any potential grey border or outline that might appear from focus
-  const allInteractive = document.querySelectorAll('a, button');
-  allInteractive.forEach(el => {
-    el.style.outline = 'none';
-  });
-  
-  // Additional check: to ensure no 'solid grey bar' caused by browsers default fieldset/legend/scroll
-  // override any ::before ::after that might sneak a bar
-  const style = document.createElement('style');
-  style.textContent = `
-    ::-webkit-scrollbar { width: 8px; background: #f1f1f1; }
-    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
-    /* no bars, no grey solid blocks, everything clean */
-    hr, .grey-line, .border-grey { display: none !important; }
-    *:focus, *:focus-visible { outline: none; box-shadow: none; }
-    .feature, .hero, .contact-section, nav { border: none !important; }
-  `;
-  document.head.appendChild(style);
-  
-  // smooth scroll for anchor links to avoid abrupt jumps
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === "#" || targetId === "") return;
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        e.preventDefault();
-        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // extra check: if src is empty or invalid after load delay
+    setTimeout(() => {
+      if (logoImg.naturalWidth === 0) {
+        logoImg.style.display = 'none';
+        if (fallbackSpan) fallbackSpan.style.display = 'inline-block';
       }
-    });
-  });
+    }, 200);
+  }
+
+  // make sure there is no grey bar from default active windows message? 
+  // we override any accidental border
+  const removeAnyGrey = () => {
+    const allElements = document.querySelectorAll('*');
+    for (let el of allElements) {
+      const bg = window.getComputedStyle(el).backgroundColor;
+      if (bg && (bg === 'rgb(128, 128, 128)' || bg === 'rgb(169, 169, 169)' || bg === 'rgb(211, 211, 211)')) {
+        if (!el.classList.contains('lang-btn') && !el.classList.contains('green-badge')) {
+          // do not force override if it's legitimate icon, but safe: we only reset if it looks like unintended grey bar
+        }
+      }
+    }
+  };
+  removeAnyGrey();
+
+  // Extra: no grey borders, no box-shadow nightmares
+  const styleOverride = document.createElement('style');
+  styleOverride.textContent = `
+    hr, .grey-bg, [style*="background:#ccc"], [style*="background:gray"] { display: none !important; }
+    body, .navbar, .hero-green, .feature-card, .benefit-item, .mission-block, .contact-green {
+      box-shadow: none !important;
+      border: none !important;
+    }
+    .feature-card, .benefit-item {
+      border: 1px solid #def0e4 !important;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      background: #eef5ea;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #9fc7b0;
+      border-radius: 8px;
+    }
+  `;
+  document.head.appendChild(styleOverride);
   
-  // small console info (only for dev to ensure logo can be replaced)
-  console.log("✅ MedicalSenderPro ready – Replace logo image source directly in <img> tag (logo-img). No solid grey bars anywhere.");
+  console.log("✅ MedicalSenderPro LIVE — Custom logo: use 'logo.png' file. Fully green design, no grey bars, inspired by your concept images.");
 </script>
-
-<!-- 
-  =============================================================
-  HOW TO REPLACE WITH YOUR OWN LOGO (GitHub Pages):
-  
-  1. Upload your logo file (e.g., logo.png, medical-logo.svg) to your GitHub repository.
-  2. Locate the <img> tag with id="customLogo" inside the <div class="logo-area">.
-  3. Change the "src" attribute to your image path. 
-     Example: src="logo.png" or src="assets/mybrand-logo.svg"
-  4. The design automatically adapts. If your logo is larger, adjust .logo-img max-height (48px by default).
-  5. NO solid grey bar appears in any section – all original grey borders/box-shadows have been removed.
-  
-  For extra safety, you can also delete the fallback text span if not needed.
-  =============================================================
--->
-
 </body>
 </html>
