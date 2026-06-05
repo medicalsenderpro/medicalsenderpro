@@ -16,7 +16,7 @@
   .overlay {
     background: rgba(0,0,0,0.65);
     min-height: 100vh;
-    padding: 30px;
+    padding: 25px;
   }
 
   header {
@@ -26,9 +26,8 @@
   }
 
   h1 {
-    margin: 0;
     color: #38bdf8;
-    font-size: 26px;
+    margin: 0;
   }
 
   .btn {
@@ -37,37 +36,32 @@
     padding: 8px 12px;
     border-radius: 6px;
     cursor: pointer;
-    font-weight: bold;
   }
 
   .hero {
     text-align: center;
-    margin-top: 100px;
+    margin-top: 120px;
   }
 
-  .title {
-    font-size: 42px;
-    margin-bottom: 10px;
+  .hero h2 {
+    font-size: 40px;
   }
 
-  .desc {
-    font-size: 18px;
-    color: #cbd5e1;
+  .section {
+    text-align: center;
+    margin-top: 80px;
   }
 
   .card {
-    margin-top: 60px;
-    text-align: center;
-    background: rgba(255,255,255,0.05);
+    background: rgba(255,255,255,0.08);
     padding: 20px;
     border-radius: 12px;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 600px;
+    margin: 20px auto;
   }
 
   .contact {
-    margin-top: 30px;
+    margin-top: 80px;
     text-align: center;
     color: #e2e8f0;
   }
@@ -89,21 +83,20 @@
     <button class="btn" onclick="toggleLang()">AR / EN</button>
   </header>
 
-  <!-- HERO (THIS WAS MISSING BEFORE) -->
   <div class="hero">
-    <div class="title" id="title">Secure Medical DICOM Sharing</div>
-    <div class="desc" id="desc">Fast and safe platform for radiology centers</div>
+    <h2 id="title">Secure Medical DICOM Sharing</h2>
+    <p id="desc">Fast and safe platform for radiology centers</p>
   </div>
 
-  <!-- FEATURE CARD -->
-  <div class="card" id="card">
-    <h3 id="featureTitle">Why MedicalSenderPro?</h3>
-    <p id="featureText">
-      Designed specifically for radiology departments to securely send and receive medical imaging data.
-    </p>
+  <div class="section">
+    <div class="card">
+      <h3 id="featureTitle">Why MedicalSenderPro?</h3>
+      <p id="featureText">
+        A secure system designed for radiology departments to send and receive medical imaging safely.
+      </p>
+    </div>
   </div>
 
-  <!-- CONTACT -->
   <div class="contact">
     <p id="contact">Contact: medicalsenderpro@gmail.com</p>
     <p>www.medicalsenderpro.com</p>
@@ -130,7 +123,7 @@ function toggleLang() {
       "لماذا MedicalSenderPro؟";
 
     document.getElementById("featureText").innerText =
-      "مصمم خصيصًا لمراكز الأشعة لتبادل الصور الطبية بشكل آمن وسريع.";
+      "نظام آمن مصمم لمراكز الأشعة لتبادل الصور الطبية.";
 
     document.getElementById("contact").innerText =
       "تواصل معنا: medicalsenderpro@gmail.com";
@@ -148,7 +141,7 @@ function toggleLang() {
       "Why MedicalSenderPro?";
 
     document.getElementById("featureText").innerText =
-      "Designed specifically for radiology departments to securely send and receive medical imaging data.";
+      "A secure system designed for radiology departments to send and receive medical imaging safely.";
 
     document.getElementById("contact").innerText =
       "Contact: medicalsenderpro@gmail.com";
