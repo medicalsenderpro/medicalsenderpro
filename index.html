@@ -4,10 +4,8 @@
 <meta charset="UTF-8">
 <title>MedicalSenderPro</title>
 
-<!-- simple icon support -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 <style>
+/* BASE */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -15,7 +13,40 @@ body {
   color: #0f172a;
 }
 
-/* HERO BACKGROUND IMAGE (SUBTLE) */
+/* NAV (NO GREY BAR) */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+nav h2 {
+  margin: 0;
+  color: #0ea5e9;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #334155;
+  font-weight: 600;
+}
+
+.btn {
+  background: #0ea5e9;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+/* HERO */
 .hero {
   text-align: center;
   padding: 110px 20px;
@@ -46,46 +77,13 @@ body {
   color: #e2e8f0;
 }
 
-/* NAV */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 25px;
-  border-bottom: 1px solid #e2e8f0;
-  position: sticky;
-  top: 0;
-  background: white;
-}
-
-nav h2 {
-  margin: 0;
-  color: #0ea5e9;
-}
-
-nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #334155;
-  font-weight: 600;
-}
-
 /* SECTIONS */
 .section {
   padding: 70px 20px;
   text-align: center;
 }
 
-.card {
-  max-width: 700px;
-  margin: auto;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  padding: 25px;
-  border-radius: 12px;
-}
-
-/* ICONS */
+/* FEATURES */
 .features {
   display: flex;
   justify-content: center;
@@ -101,28 +99,18 @@ nav a {
   border-radius: 12px;
 }
 
-.feature i {
-  font-size: 28px;
-  color: #0ea5e9;
-  margin-bottom: 10px;
+.feature p {
+  margin-top: 10px;
+  font-weight: bold;
 }
 
-/* CONTACT */
+/* CONTACT (PURE WHITE, NO GREY) */
 .contact {
-  background: #f8fafc;
-  border-top: 1px solid #e2e8f0;
+  background: #ffffff;
+  border-top: 1px solid #f1f5f9;
   text-align: center;
   padding: 40px 20px;
-}
-
-/* BUTTON */
-.btn {
-  background: #0ea5e9;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  color: white;
-  cursor: pointer;
+  color: #334155;
 }
 
 /* ARABIC */
@@ -163,17 +151,23 @@ nav a {
   <div class="features">
 
     <div class="feature">
-      <i class="fa-solid fa-shield-halved"></i>
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="#0ea5e9">
+        <path d="M12 1l9 4v6c0 5-3.8 9.4-9 12C6.8 20.4 3 16 3 11V5l9-4z"/>
+      </svg>
       <p>Secure Transfer</p>
     </div>
 
     <div class="feature">
-      <i class="fa-solid fa-bolt"></i>
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="#0ea5e9">
+        <path d="M13 2L3 14h7v8l10-12h-7z"/>
+      </svg>
       <p>Fast Sharing</p>
     </div>
 
     <div class="feature">
-      <i class="fa-solid fa-hospital"></i>
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="#0ea5e9">
+        <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+      </svg>
       <p>Radiology Focused</p>
     </div>
 
