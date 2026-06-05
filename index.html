@@ -1,73 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>MedicalSenderPro</title>
+<meta charset="UTF-8">
+<title>MedicalSenderPro</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: white;
-      background: url("https://images.unsplash.com/photo-1581091870622-2f0b7b0b5c0f") no-repeat center center fixed;
-      background-size: cover;
-    }
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: url("https://images.unsplash.com/photo-1581091870622-2f0b7b0b5c0f") no-repeat center center fixed;
+    background-size: cover;
+  }
 
-    .overlay {
-      background: rgba(0,0,0,0.65);
-      min-height: 100vh;
-      padding: 30px;
-    }
+  .overlay {
+    background: rgba(0,0,0,0.65);
+    min-height: 100vh;
+    padding: 30px;
+  }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-    h1 {
-      margin: 0;
-      color: #38bdf8;
-      font-size: 26px;
-    }
+  h1 {
+    margin: 0;
+    color: #38bdf8;
+    font-size: 26px;
+  }
 
-    .btn {
-      background: #38bdf8;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-    }
+  .btn {
+    background: #38bdf8;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+  }
 
-    .center {
-      text-align: center;
-      margin-top: 120px;
-    }
+  .hero {
+    text-align: center;
+    margin-top: 100px;
+  }
 
-    .title {
-      font-size: 38px;
-      margin-bottom: 10px;
-    }
+  .title {
+    font-size: 42px;
+    margin-bottom: 10px;
+  }
 
-    .desc {
-      font-size: 18px;
-      color: #cbd5e1;
-    }
+  .desc {
+    font-size: 18px;
+    color: #cbd5e1;
+  }
 
-    .contact {
-      margin-top: 120px;
-      text-align: center;
-      font-size: 16px;
-      color: #e2e8f0;
-    }
+  .card {
+    margin-top: 60px;
+    text-align: center;
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-    .arabic {
-      direction: rtl;
-      text-align: right;
-    }
+  .contact {
+    margin-top: 30px;
+    text-align: center;
+    color: #e2e8f0;
+  }
 
-  </style>
+  .arabic {
+    direction: rtl;
+    text-align: right;
+  }
+
+</style>
 </head>
 
 <body>
@@ -79,11 +89,21 @@
     <button class="btn" onclick="toggleLang()">AR / EN</button>
   </header>
 
-  <div class="center">
+  <!-- HERO (THIS WAS MISSING BEFORE) -->
+  <div class="hero">
     <div class="title" id="title">Secure Medical DICOM Sharing</div>
     <div class="desc" id="desc">Fast and safe platform for radiology centers</div>
   </div>
 
+  <!-- FEATURE CARD -->
+  <div class="card" id="card">
+    <h3 id="featureTitle">Why MedicalSenderPro?</h3>
+    <p id="featureText">
+      Designed specifically for radiology departments to securely send and receive medical imaging data.
+    </p>
+  </div>
+
+  <!-- CONTACT -->
   <div class="contact">
     <p id="contact">Contact: medicalsenderpro@gmail.com</p>
     <p>www.medicalsenderpro.com</p>
@@ -92,36 +112,48 @@
 </div>
 
 <script>
-  let arabic = false;
+let arabic = false;
 
-  function toggleLang() {
-    arabic = !arabic;
+function toggleLang() {
+  arabic = !arabic;
 
-    if (arabic) {
-      document.body.classList.add("arabic");
+  if (arabic) {
+    document.body.classList.add("arabic");
 
-      document.getElementById("title").innerText =
-        "منصة آمنة لتبادل ملفات الأشعة";
+    document.getElementById("title").innerText =
+      "منصة آمنة لتبادل ملفات الأشعة";
 
-      document.getElementById("desc").innerText =
-        "حل سريع وآمن لمراكز الأشعة";
+    document.getElementById("desc").innerText =
+      "حل سريع وآمن لمراكز الأشعة";
 
-      document.getElementById("contact").innerText =
-        "تواصل معنا: medicalsenderpro@gmail.com";
+    document.getElementById("featureTitle").innerText =
+      "لماذا MedicalSenderPro؟";
 
-    } else {
-      document.body.classList.remove("arabic");
+    document.getElementById("featureText").innerText =
+      "مصمم خصيصًا لمراكز الأشعة لتبادل الصور الطبية بشكل آمن وسريع.";
 
-      document.getElementById("title").innerText =
-        "Secure Medical DICOM Sharing";
+    document.getElementById("contact").innerText =
+      "تواصل معنا: medicalsenderpro@gmail.com";
 
-      document.getElementById("desc").innerText =
-        "Fast and safe platform for radiology centers";
+  } else {
+    document.body.classList.remove("arabic");
 
-      document.getElementById("contact").innerText =
-        "Contact: medicalsenderpro@gmail.com";
-    }
+    document.getElementById("title").innerText =
+      "Secure Medical DICOM Sharing";
+
+    document.getElementById("desc").innerText =
+      "Fast and safe platform for radiology centers";
+
+    document.getElementById("featureTitle").innerText =
+      "Why MedicalSenderPro?";
+
+    document.getElementById("featureText").innerText =
+      "Designed specifically for radiology departments to securely send and receive medical imaging data.";
+
+    document.getElementById("contact").innerText =
+      "Contact: medicalsenderpro@gmail.com";
   }
+}
 </script>
 
 </body>
