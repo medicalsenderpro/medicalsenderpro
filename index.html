@@ -1,191 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MedicalSender Pro</title>
+  <meta charset="UTF-8">
+  <title>MedicalSenderPro</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      text-align: center;
+    }
 
-<link rel="stylesheet" href="style.css">
+    header {
+      padding: 60px 20px;
+      background: #1e293b;
+    }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    h1 {
+      font-size: 40px;
+      color: #38bdf8;
+    }
+
+    p {
+      font-size: 18px;
+      color: #cbd5e1;
+    }
+
+    .btn {
+      background: #38bdf8;
+      color: black;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .section {
+      padding: 50px 20px;
+    }
+
+    img {
+      width: 300px;
+      border-radius: 12px;
+      margin: 10px;
+    }
+
+    .grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-    <div class="container nav">
-        <div class="logo">
-            <img src="logo.png" alt="MedicalSender Pro">
-            <span>MedicalSender Pro</span>
-        </div>
-
-        <nav>
-            <a href="#features">Features</a>
-            <a href="#benefits">Benefits</a>
-            <a href="#green">Green Initiative</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </div>
+  <h1>MedicalSenderPro</h1>
+  <p>Secure DICOM Sharing for Radiology Centers</p>
+  <button class="btn" onclick="alert('Welcome to MedicalSenderPro!')">
+    Get Started
+  </button>
 </header>
 
-<section class="hero">
+<div class="section">
+  <h2>Our System</h2>
+  <p>Fast, secure, and designed for radiology departments</p>
 
-    <div class="hero-content">
-        <h1>Smarter. Faster. Greener.</h1>
+  <div class="grid">
+    <img src="https://images.unsplash.com/photo-1581091870622-2f0b7b0b5c0f" />
+    <img src="https://images.unsplash.com/photo-1582719478185-2a0a8c7b6f1b" />
+    <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67" />
+  </div>
+</div>
 
-        <h2>Digital DICOM Sharing for Radiology Centers</h2>
-
-        <p>
-            Automate medical image distribution through secure links
-            delivered instantly via WhatsApp and Email.
-        </p>
-
-        <div class="buttons">
-            <a href="#contact" class="btn-primary">Request Demo</a>
-            <a href="#features" class="btn-secondary">Learn More</a>
-        </div>
-    </div>
-
-</section>
-
-<section id="features" class="section">
-
-    <h2 class="section-title">Key Features</h2>
-
-    <div class="grid">
-
-        <div class="card">
-            <h3>Automatic DICOM Upload</h3>
-            <p>Seamless upload directly from radiology workstations.</p>
-        </div>
-
-        <div class="card">
-            <h3>WhatsApp Sharing</h3>
-            <p>Instant delivery of secure study links.</p>
-        </div>
-
-        <div class="card">
-            <h3>Email Distribution</h3>
-            <p>Automatically notify physicians and patients.</p>
-        </div>
-
-        <div class="card">
-            <h3>Secure Access</h3>
-            <p>Protected link-based image sharing.</p>
-        </div>
-
-        <div class="card">
-            <h3>Minimal Human Interaction</h3>
-            <p>Reduce manual tasks and operational errors.</p>
-        </div>
-
-        <div class="card">
-            <h3>Radiology Focused</h3>
-            <p>Built specifically for imaging departments.</p>
-        </div>
-
-    </div>
-
-</section>
-
-<section id="benefits" class="section blue">
-
-    <h2 class="section-title white">Benefits for Radiology Centers</h2>
-
-    <div class="grid">
-
-        <div class="benefit">
-            <h3>Reduce Costs</h3>
-            <p>Lower expenses on CDs, printing and storage.</p>
-        </div>
-
-        <div class="benefit">
-            <h3>Save Time</h3>
-            <p>Accelerate image delivery and patient service.</p>
-        </div>
-
-        <div class="benefit">
-            <h3>Reduce Errors</h3>
-            <p>Automation decreases manual mistakes.</p>
-        </div>
-
-        <div class="benefit">
-            <h3>Improve Efficiency</h3>
-            <p>Streamlined workflow for radiology teams.</p>
-        </div>
-
-    </div>
-
-</section>
-
-<section id="green" class="section green-section">
-
-    <h2 class="section-title">Supporting Green Healthcare</h2>
-
-    <p class="center">
-        MedicalSender Pro helps radiology centers reduce paper,
-        CDs, transportation requirements and resource consumption.
-    </p>
-
-    <div class="green-box">
-
-        <div>
-            🌱 Eco Friendly
-        </div>
-
-        <div>
-            ⚡ Save Electricity
-        </div>
-
-        <div>
-            ♻ Reduce Waste
-        </div>
-
-        <div>
-            🌍 Support Sustainability
-        </div>
-
-    </div>
-
-</section>
-
-<section class="section">
-
-    <h2 class="section-title">How It Works</h2>
-
-    <div class="workflow">
-
-        <div>Upload DICOM</div>
-        <div>Generate Secure Link</div>
-        <div>Send via WhatsApp / Email</div>
-        <div>Instant Access</div>
-
-    </div>
-
-</section>
-
-<section id="contact" class="section contact">
-
-    <h2 class="section-title">Contact & Support</h2>
-
-    <p>
-        Email: medicalsenderpro@gmail.com
-    </p>
-
-    <p>
-        Website: www.medicalsenderpro.com
-    </p>
-
-    <a href="mailto:medicalsenderpro@gmail.com" class="btn-primary">
-        Contact Us
-    </a>
-
-</section>
-
-<footer>
-    © 2026 MedicalSender Pro | Designed for Radiology Centers
-</footer>
+<div class="section" style="background:#1e293b;">
+  <h2>Contact</h2>
+  <p>medicalsenderpro@gmail.com</p>
+  <p>www.medicalsenderpro.com</p>
+</div>
 
 </body>
 </html>
